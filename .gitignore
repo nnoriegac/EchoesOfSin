@@ -1,3 +1,7 @@
+# ===========================
+# Godot 4 (default)
+# =========================== 
+
 # Godot 4+ specific ignores
 .godot/
 .nomedia
@@ -14,3 +18,34 @@ export_credentials.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# ===========================
+# TFG: Archivos que NO deben subirse
+# ===========================
+
+# Builds exportadas
+# (solo guardamos la carpeta export/ vacía con un .gitkeep)
+export/*
+!export/.gitkeep
+
+# Archivos temporales del sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporales / backups
+*.tmp
+*.temp
+*.bak
+*.log
+
+
+# Archivos de bloqueo de herramientas
+*.lock
+
+
+# ===========================
+# Editor / IDE
+# ===========================
+.vscode/
+.idea/
