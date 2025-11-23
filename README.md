@@ -54,7 +54,7 @@ que simulan barro, piedras y charcos.
   - Cámara que sigue al jugador mediante Camera2D.
 
 - Interacción clave:
-  -Objeto recogible (arma) en el jardín.
+  - Objeto recogible (arma) en el jardín.
   - Al recogerlo se muestra un mensaje en pantalla:
     "Has recogido el arma"
   - El objeto desaparece tras ser recogido.
