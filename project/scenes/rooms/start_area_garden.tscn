@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dccv3qjhw0il4"]
+[gd_scene load_steps=13 format=3 uid="uid://dccv3qjhw0il4"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/hud.tscn" id="1_alpvj"]
 [ext_resource type="TileSet" uid="uid://dcjyy360bdjkf" path="res://scripts/winter_garden_tileset.tres" id="2_1b2c0"]
 [ext_resource type="Texture2D" uid="uid://c6pt5gb0hvenf" path="res://sprites/Garden/fountain1.png" id="3_6f8no"]
 [ext_resource type="Texture2D" uid="uid://bqqxhxjo2shb7" path="res://sprites/Garden/tree.png" id="4_pt81g"]
 [ext_resource type="Texture2D" uid="uid://q1djfd8uehe5" path="res://sprites/Items/weapon1.png" id="5_huke7"]
+[ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="6_1b2c0"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="6_3d8vf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikmrj"]
@@ -20,8 +21,9 @@ size = Vector2(972, 33)
 radius = 88.0
 height = 262.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x34ev"]
-size = Vector2(46.25, 33.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1b2c0"]
+radius = 21.0
+height = 42.0
 
 [node name="StartAreaGarden" type="Node2D"]
 position = Vector2(0, 367)
@@ -72,19 +74,20 @@ texture = ExtResource("4_pt81g")
 position = Vector2(742, -291)
 shape = SubResource("CapsuleShape2D_38cfg")
 
-[node name="ItemKey" type="Area2D" parent="."]
-position = Vector2(-11, 4)
+[node name="Item" parent="." instance=ExtResource("6_1b2c0")]
+item_id = "arma_inicio"
+gives_weapon = true
 
-[node name="Sprite2D" type="Sprite2D" parent="ItemKey"]
-position = Vector2(675, -163.00002)
-scale = Vector2(0.05517591, 0.05810556)
+[node name="CollisionShape2D" parent="Item" index="0"]
+position = Vector2(664, -160)
+shape = SubResource("CapsuleShape2D_1b2c0")
+
+[node name="Sprite2D" parent="Item" index="1"]
+position = Vector2(669.99994, -159)
+scale = Vector2(0.061035186, 0.061523423)
 texture = ExtResource("5_huke7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemKey"]
-position = Vector2(675.875, -162)
-shape = SubResource("RectangleShape2D_x34ev")
-
 [node name="Player" parent="." instance=ExtResource("6_3d8vf")]
-position = Vector2(353, 135)
+position = Vector2(274, 124)
 
-[connection signal="body_entered" from="ItemKey" to="Player" method="_on_item_key_body_entered"]
+[editable path="Item"]

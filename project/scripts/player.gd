@@ -50,3 +50,8 @@ func _on_item_key_body_entered(body):
 		var hud = get_parent().get_node("HUD")
 		hud.show_message("¡Has recogido el arma!")
 		get_parent().get_node("ItemKey").queue_free() # desaparece del mapa
+
+func unlock_weapon(weapon_id: String):
+	print("Arma obtenida:", weapon_id)
+	GameState.add_item(weapon_id)
+	# Más adelante aquí activo disparo, o cambiar modo de ataque ...
