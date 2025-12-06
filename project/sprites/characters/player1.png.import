@@ -2,21 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4oaghmsaj8so"
-path="res://.godot/imported/SafeRoom1.png-8cdf4dbeb2c1a2b8d66bdf9f6780d388.ctex"
+uid="uid://hxyogs6hukjw"
+path="res://.godot/imported/player1.png-c6433df33a2bbf10c88868f90400dff9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/SafeRoom1/SafeRoom1.png"
-dest_files=["res://.godot/imported/SafeRoom1.png-8cdf4dbeb2c1a2b8d66bdf9f6780d388.ctex"]
+source_file="res://sprites/characters/player1.png"
+dest_files=["res://.godot/imported/player1.png-c6433df33a2bbf10c88868f90400dff9.ctex"]
 
 [params]
 
 compress/mode=0
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
