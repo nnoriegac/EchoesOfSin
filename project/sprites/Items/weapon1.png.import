@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6pt5gb0hvenf"
-path="res://.godot/imported/fountain1.png-4c88a7cde40d07e80e2def43714aa012.ctex"
+uid="uid://q1djfd8uehe5"
+path="res://.godot/imported/weapon1.png-e9a2407c183a52ce9565ed499fe0dcab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fountain1.png"
-dest_files=["res://.godot/imported/fountain1.png-4c88a7cde40d07e80e2def43714aa012.ctex"]
+source_file="res://sprites/Items/weapon1.png"
+dest_files=["res://.godot/imported/weapon1.png-e9a2407c183a52ce9565ed499fe0dcab.ctex"]
 
 [params]
 

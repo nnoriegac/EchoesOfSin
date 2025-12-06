@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q1djfd8uehe5"
-path="res://.godot/imported/weapon1.png-d10b83d0d9d55eff45b3aedfbfbdfad2.ctex"
+uid="uid://d4hiam0nte0sh"
+path="res://.godot/imported/hallway.png-68680da94625b040300f9a2e70c84f67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/weapon1.png"
-dest_files=["res://.godot/imported/weapon1.png-d10b83d0d9d55eff45b3aedfbfbdfad2.ctex"]
+source_file="res://sprites/Hallway/hallway.png"
+dest_files=["res://.godot/imported/hallway.png-68680da94625b040300f9a2e70c84f67.ctex"]
 
 [params]
 
