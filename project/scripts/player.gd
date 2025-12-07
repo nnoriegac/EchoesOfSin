@@ -27,7 +27,7 @@ func _physics_process(delta):
 func take_damage(amount: int) -> void:
 	GameState.damage_player(amount)
 	
-	var hud = get_parent().get_node_or_null("HUD")
+	var hud = get_parent().get_first_node_in_group("hud")
 	if hud:
 		hud.update_hp(GameState.player_hp, GameState.player_hp_max)
 	
@@ -45,12 +45,6 @@ func die() -> void:
 # ============================
 #   RECOGER OBJETOS
 # ============================
-func _on_item_key_body_entered(body):
-	if body.name == "Player":
-		var hud = get_parent().get_node("HUD")
-		hud.show_message("¡Has recogido el arma!")
-		get_parent().get_node("ItemKey").queue_free() # desaparece del mapa
-
 func unlock_weapon(weapon_id: String):
 	print("Arma obtenida:", weapon_id)
 	GameState.add_item(weapon_id)

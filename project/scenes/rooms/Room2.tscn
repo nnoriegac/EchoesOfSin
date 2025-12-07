@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cncdmakk13seh"]
+[gd_scene load_steps=13 format=3 uid="uid://cncdmakk13seh"]
 
 [ext_resource type="Texture2D" uid="uid://d2iij2wwb0j6s" path="res://sprites/Room2/Room2.png" id="1_2q7b5"]
+[ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_jwyym"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_71j26"]
+[ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="3_71j26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(621, 139)
@@ -18,7 +20,18 @@ size = Vector2(391, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71j26"]
 size = Vector2(101, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q7b5"]
+size = Vector2(110, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwyym"]
+size = Vector2(20, 117.99628)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v52wf"]
+size = Vector2(20, 111)
+
 [node name="SafeRoom" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_jwyym")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
@@ -26,7 +39,7 @@ scale = Vector2(2.4945314, 2.5993056)
 texture = ExtResource("1_2q7b5")
 
 [node name="Player" parent="." instance=ExtResource("2_71j26")]
-position = Vector2(601, 151)
+position = Vector2(498, 555)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -53,3 +66,38 @@ shape = SubResource("RectangleShape2D_qu2cq")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(560, 598.5)
 shape = SubResource("RectangleShape2D_71j26")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(223, 193)
+shape = SubResource("RectangleShape2D_2q7b5")
+
+[node name="Door" parent="." instance=ExtResource("3_71j26")]
+position = Vector2(525, 510.00006)
+rotation = 1.5695783
+target_scene = "res://scenes/rooms/Hallway.tscn"
+
+[node name="Sprite2D" parent="Door" index="0"]
+texture = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(106.85492, 70.13211)
+shape = SubResource("RectangleShape2D_jwyym")
+
+[node name="Door2" parent="." instance=ExtResource("3_71j26")]
+position = Vector2(530, 296)
+locked = true
+required_key = "key_baño2"
+
+[node name="Sprite2D" parent="Door2" index="0"]
+texture = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
+position = Vector2(105, 73)
+shape = SubResource("RectangleShape2D_v52wf")
+
+[editable path="Door"]
+[editable path="Door2"]

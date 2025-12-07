@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://ceppm3w5sfetp"]
+[gd_scene load_steps=5 format=3 uid="uid://ceppm3w5sfetp"]
 
 [ext_resource type="Script" uid="uid://d2mnccn2i6fjh" path="res://scripts/HUD.gd" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://borxhjsh2x1m6" path="res://icon.svg" id="2_fls4u"]
 
-[node name="HUD" type="CanvasLayer"]
+[sub_resource type="LabelSettings" id="LabelSettings_qpvh6"]
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_fls4u"]
+font_size = 20
+
+[node name="HUD" type="CanvasLayer" groups=["hud"]]
 script = ExtResource("1_ahhtf")
 
 [node name="Message" type="Label" parent="."]
@@ -22,3 +29,38 @@ text = "¡Has recogido un objeto!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="HpLabel" type="Label" parent="."]
+offset_left = 156.0
+offset_top = 56.0
+offset_right = 286.0
+offset_bottom = 84.0
+text = "Vida: 100/100"
+label_settings = SubResource("LabelSettings_qpvh6")
+
+[node name="Sprite2D" type="Sprite2D" parent="HpLabel"]
+position = Vector2(-36.00001, 14.999996)
+scale = Vector2(0.3671875, 0.3671875)
+texture = ExtResource("2_fls4u")
+
+[node name="AmmoLabel" type="Label" parent="."]
+offset_left = 155.0
+offset_top = 124.0
+offset_right = 298.0
+offset_bottom = 152.0
+text = "Munición: 0/10"
+label_settings = SubResource("LabelSettings_fls4u")
+
+[node name="DialogBox" type="Panel" parent="."]
+offset_left = 1095.0
+offset_top = 1086.0
+offset_right = 1854.0
+offset_bottom = 1203.0
+
+[node name="DialogText" type="Label" parent="DialogBox"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 20.0
+offset_right = 731.0
+offset_bottom = 94.0
+text = "Empieza la aventura ..."

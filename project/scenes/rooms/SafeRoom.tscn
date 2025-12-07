@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bjygcvqjtyn33"]
+[gd_scene load_steps=10 format=3 uid="uid://bjygcvqjtyn33"]
 
 [ext_resource type="Texture2D" uid="uid://c4oaghmsaj8so" path="res://sprites/SafeRoom1/SafeRoom1.png" id="1_4xo85"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_k1iyv"]
+[ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_qe7lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(621, 139)
@@ -18,15 +19,15 @@ size = Vector2(598, 15)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdrjp"]
 size = Vector2(110, 206)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmk3q"]
+size = Vector2(20, 111)
+
 [node name="SafeRoom" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
 scale = Vector2(2.4945314, 2.5993056)
 texture = ExtResource("1_4xo85")
-
-[node name="Player" parent="." instance=ExtResource("2_k1iyv")]
-position = Vector2(83, 506)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -53,3 +54,21 @@ shape = SubResource("RectangleShape2D_qu2cq")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(69, 368)
 shape = SubResource("RectangleShape2D_kdrjp")
+
+[node name="Door" parent="." instance=ExtResource("2_qe7lq")]
+position = Vector2(531, 290)
+target_scene = "res://scenes/rooms/Hallway.tscn"
+
+[node name="Sprite2D" parent="Door" index="0"]
+texture = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(105, 79.5)
+shape = SubResource("RectangleShape2D_rmk3q")
+
+[node name="Player" parent="." instance=ExtResource("2_k1iyv")]
+position = Vector2(635, 360)
+
+[editable path="Door"]

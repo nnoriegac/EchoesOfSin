@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ekbbb0fviir7"]
+[gd_scene load_steps=10 format=3 uid="uid://ekbbb0fviir7"]
 
+[ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_j0bqs"]
 [ext_resource type="Texture2D" uid="uid://duadfjew723ks" path="res://sprites/Room1/Room1.png" id="1_tfpoq"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_eud5g"]
+[ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_j0bqs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(397, 139)
@@ -12,15 +14,20 @@ size = Vector2(15, 626.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eud5g"]
 size = Vector2(170, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfpoq"]
+size = Vector2(66, 116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd6xt"]
+size = Vector2(22.108887, 113.99753)
+
 [node name="SafeRoom" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_j0bqs")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
 scale = Vector2(2.4945314, 2.5993056)
 texture = ExtResource("1_tfpoq")
-
-[node name="Player" parent="." instance=ExtResource("2_eud5g")]
-position = Vector2(273, 530)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -43,3 +50,26 @@ shape = SubResource("RectangleShape2D_eud5g")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(353, 602)
 shape = SubResource("RectangleShape2D_eud5g")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(397, 199)
+shape = SubResource("RectangleShape2D_tfpoq")
+
+[node name="Door" parent="." instance=ExtResource("2_j0bqs")]
+position = Vector2(281, 513.00006)
+rotation = 1.5730176
+target_scene = "res://scenes/rooms/Hallway.tscn"
+
+[node name="Sprite2D" parent="Door" index="0"]
+texture = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(106.18976, 62.7632)
+shape = SubResource("RectangleShape2D_wd6xt")
+
+[node name="Player" parent="." instance=ExtResource("2_eud5g")]
+position = Vector2(257, 556)
+
+[editable path="Door"]

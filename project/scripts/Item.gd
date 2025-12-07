@@ -28,10 +28,9 @@ func _on_body_entered(body):
 		body.unlock_weapon(item_id) # luego crearemos esta función
 	
 	# Mostrar mensaje (si tienes HUD)
-	var hud = get_tree().get_first_node_in_group("HUD")
+	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
-		hud.show_message("Has recogido: " + item_id)
-	print("Item recogido:", item_id)
+		hud.show_pickup_dialog("Has recogido " + item_id)
 
 	# Eliminar el objeto del mapa
 	queue_free()

@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://10h0mls1aaca"]
+[gd_scene load_steps=23 format=3 uid="uid://10h0mls1aaca"]
 
+[ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_6fd4u"]
 [ext_resource type="Texture2D" uid="uid://d4hiam0nte0sh" path="res://sprites/Hallway/hallway.png" id="1_6smnc"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="1_t0rdd"]
+[ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="3_1ps0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps0b"]
 size = Vector2(2019.5, 183.5)
@@ -30,15 +32,41 @@ size = Vector2(18, 412.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svu3l"]
 size = Vector2(18, 224.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkcx1"]
+size = Vector2(47.5, 120.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q6rj"]
+size = Vector2(205, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b767"]
+size = Vector2(265, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_midbb"]
+size = Vector2(209.5, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f00o"]
+size = Vector2(20, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buyp4"]
+size = Vector2(73, 68)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1bue"]
+size = Vector2(232.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ehqdh"]
+size = Vector2(75, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mfk48"]
+size = Vector2(75, 64.75)
+
 [node name="Hallway" type="Node2D"]
 
+[node name="HUD" parent="." instance=ExtResource("1_6fd4u")]
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(20.500008, 323.68753)
+position = Vector2(27, 321)
 scale = Vector2(3.5390623, 3.148264)
 texture = ExtResource("1_6smnc")
-
-[node name="Player" parent="." instance=ExtResource("1_t0rdd")]
-position = Vector2(975, -21)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -77,3 +105,174 @@ shape = SubResource("RectangleShape2D_hpgqk")
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1103, 401.75)
 shape = SubResource("RectangleShape2D_svu3l")
+
+[node name="Door" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(1056, 167)
+target_scene = "res://scenes/rooms/start_area_garden.tscn"
+
+[node name="Sprite2D" parent="Door" index="0"]
+texture = null
+
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(123.875, 65)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(120.75, 61.75)
+shape = SubResource("RectangleShape2D_jkcx1")
+
+[node name="Door2" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(-130, 81)
+target_scene = "res://scenes/rooms/CountersRoom.tscn"
+
+[node name="Sprite2D" parent="Door2" index="0"]
+position = Vector2(296.78125, 419.99997)
+scale = Vector2(2.6006835, 2.6555555)
+texture = null
+
+[node name="CollisionShape2D" parent="Door2" index="1"]
+position = Vector2(1032.5162, 463.97742)
+rotation = 1.5667043
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
+position = Vector2(-118, 13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
+position = Vector2(1152, 431)
+shape = SubResource("RectangleShape2D_2q6rj")
+
+[node name="Door3" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(93, 74)
+target_scene = "res://scenes/rooms/LivingRoom.tscn"
+locked = true
+required_key = "key_livingroom"
+
+[node name="Sprite2D" parent="Door3" index="0"]
+texture = null
+
+[node name="CollisionShape2D" parent="Door3" index="1"]
+position = Vector2(-59.473866, 495.9635)
+rotation = -1.5773885
+scale = Vector2(0.9999998, 0.9999998)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/StaticBody2D"]
+position = Vector2(-63.5, 485)
+shape = SubResource("RectangleShape2D_5b767")
+
+[node name="Door4" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(206, 45)
+locked = true
+required_key = "key_baño"
+
+[node name="Sprite2D" parent="Door4" index="0"]
+texture = null
+
+[node name="CollisionShape2D" parent="Door4" index="1"]
+position = Vector2(-983, 505)
+rotation = 1.5720063
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4/StaticBody2D"]
+position = Vector2(-999, 483)
+shape = SubResource("RectangleShape2D_midbb")
+
+[node name="Door5" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(351, 66)
+target_scene = "res://scenes/rooms/SafeRoom.tscn"
+
+[node name="Sprite2D" parent="Door5" index="0"]
+texture = null
+
+[node name="CollisionShape2D" parent="Door5" index="1"]
+position = Vector2(-1488, 182)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5/StaticBody2D"]
+position = Vector2(-1469, 162.5)
+shape = SubResource("RectangleShape2D_7f00o")
+
+[node name="Door6" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(366, 253)
+target_scene = "res://scenes/rooms/Room1.tscn"
+
+[node name="Sprite2D" parent="Door6" index="0"]
+position = Vector2(-1176, -51)
+
+[node name="CollisionShape2D" parent="Door6" index="1"]
+position = Vector2(-915, -454)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door6/StaticBody2D"]
+position = Vector2(-913.5, -344)
+shape = SubResource("RectangleShape2D_buyp4")
+
+[node name="Door7" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(243, 254)
+locked = true
+
+[node name="Sprite2D" parent="Door7" index="0"]
+texture = null
+
+[node name="CollisionShape2D" parent="Door7" index="1"]
+position = Vector2(-1222.0001, -519)
+rotation = 1.5718518
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door7/StaticBody2D"]
+position = Vector2(-1223.25, -503)
+shape = SubResource("RectangleShape2D_d1bue")
+
+[node name="Door8" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(90, 240)
+target_scene = "res://scenes/rooms/Room2.tscn"
+locked = true
+required_key = "key_Room2"
+
+[node name="Sprite2D" parent="Door8" index="0"]
+position = Vector2(-453, -38)
+
+[node name="CollisionShape2D" parent="Door8" index="1"]
+position = Vector2(-188, -440)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door8/StaticBody2D"]
+position = Vector2(-191, -331)
+shape = SubResource("RectangleShape2D_ehqdh")
+
+[node name="Door9" parent="." instance=ExtResource("3_1ps0b")]
+position = Vector2(-116, 237)
+locked = true
+required_key = "key_Baño2"
+
+[node name="Sprite2D" parent="Door9" index="0"]
+position = Vector2(183, -35)
+
+[node name="CollisionShape2D" parent="Door9" index="1"]
+position = Vector2(446, -436)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door9/StaticBody2D"]
+position = Vector2(445, -327.375)
+shape = SubResource("RectangleShape2D_mfk48")
+
+[node name="Player" parent="." instance=ExtResource("1_t0rdd")]
+position = Vector2(972, 225)
+
+[editable path="Door"]
+[editable path="Door2"]
+[editable path="Door3"]
+[editable path="Door4"]
+[editable path="Door5"]
+[editable path="Door6"]
+[editable path="Door7"]
+[editable path="Door8"]
+[editable path="Door9"]

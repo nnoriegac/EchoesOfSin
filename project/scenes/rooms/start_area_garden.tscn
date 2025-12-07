@@ -1,29 +1,42 @@
-[gd_scene load_steps=13 format=3 uid="uid://dccv3qjhw0il4"]
+[gd_scene load_steps=19 format=3 uid="uid://dccv3qjhw0il4"]
 
-[ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/hud.tscn" id="1_alpvj"]
+[ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_alpvj"]
 [ext_resource type="TileSet" uid="uid://dcjyy360bdjkf" path="res://scripts/winter_garden_tileset.tres" id="2_1b2c0"]
 [ext_resource type="Texture2D" uid="uid://c6pt5gb0hvenf" path="res://sprites/Garden/fountain1.png" id="3_6f8no"]
 [ext_resource type="Texture2D" uid="uid://bqqxhxjo2shb7" path="res://sprites/Garden/tree.png" id="4_pt81g"]
 [ext_resource type="Texture2D" uid="uid://q1djfd8uehe5" path="res://sprites/Items/weapon1.png" id="5_huke7"]
 [ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="6_1b2c0"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="6_3d8vf"]
+[ext_resource type="Texture2D" uid="uid://b011w0dqp1x5l" path="res://sprites/Items/key.png" id="8_6f8no"]
+[ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="8_huke7"]
+[ext_resource type="Texture2D" uid="uid://vechgg71mr04" path="res://sprites/Garden/floor.png" id="9_3d8vf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ikmrj"]
 radius = 91.02197
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wpl1"]
-size = Vector2(27, 1121.5)
+size = Vector2(29.5, 519.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgjfm"]
-size = Vector2(972, 33)
+size = Vector2(972, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wq16"]
+size = Vector2(22, 1148)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_38cfg"]
 radius = 88.0
 height = 262.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_huke7"]
+size = Vector2(28, 131)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1b2c0"]
 radius = 21.0
 height = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pt81g"]
+radius = 7.977661
+height = 38.171875
 
 [node name="StartAreaGarden" type="Node2D"]
 position = Vector2(0, 367)
@@ -49,20 +62,24 @@ shape = SubResource("CircleShape2D_ikmrj")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-40, 142.75)
+position = Vector2(-51.75, 423.125)
 shape = SubResource("RectangleShape2D_3wpl1")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(905, 140)
+position = Vector2(-51, -238)
 shape = SubResource("RectangleShape2D_3wpl1")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(433, -420)
+position = Vector2(433, -427.25)
 shape = SubResource("RectangleShape2D_mgjfm")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(431, 691)
+position = Vector2(414, 704)
 shape = SubResource("RectangleShape2D_mgjfm")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(906, 136)
+shape = SubResource("RectangleShape2D_6wq16")
 
 [node name="tree" type="StaticBody2D" parent="."]
 
@@ -73,6 +90,25 @@ texture = ExtResource("4_pt81g")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tree"]
 position = Vector2(742, -291)
 shape = SubResource("CapsuleShape2D_38cfg")
+
+[node name="Door" parent="." instance=ExtResource("8_huke7")]
+target_scene = "res://scenes/rooms/Hallway.tscn"
+locked = true
+required_key = "key_inicio"
+
+[node name="Sprite2D" parent="Door" index="0"]
+position = Vector2(-71, 94.99997)
+scale = Vector2(0.11409179, 0.43881363)
+texture = ExtResource("9_3d8vf")
+
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(-89.25, 94.5)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(-86, 95)
+shape = SubResource("RectangleShape2D_huke7")
 
 [node name="Item" parent="." instance=ExtResource("6_1b2c0")]
 item_id = "arma_inicio"
@@ -87,7 +123,23 @@ position = Vector2(669.99994, -159)
 scale = Vector2(0.061035186, 0.061523423)
 texture = ExtResource("5_huke7")
 
+[node name="Item2" parent="." instance=ExtResource("6_1b2c0")]
+item_id = "key_inicio"
+is_key = true
+
+[node name="CollisionShape2D" parent="Item2" index="0"]
+position = Vector2(319.00003, 275)
+rotation = 1.5817164
+shape = SubResource("CapsuleShape2D_pt81g")
+
+[node name="Sprite2D" parent="Item2" index="1"]
+position = Vector2(318, 274)
+scale = Vector2(0.05761721, 0.054199215)
+texture = ExtResource("8_6f8no")
+
 [node name="Player" parent="." instance=ExtResource("6_3d8vf")]
 position = Vector2(274, 124)
 
+[editable path="Door"]
 [editable path="Item"]
+[editable path="Item2"]
