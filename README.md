@@ -39,29 +39,44 @@ No es necesario tener Godot instalado para jugar la build exportada.
 
 Movimiento: WASD o flechas
 
-Interacción: acercarse al objeto (arma); la recogida se realiza automáticamente al entrar en el área.
+Recoger armas y llaves: acercarse al objeto (arma o llave); la recogida se realiza automáticamente al entrar en el área.
 
-## Contenido del prototipo (PEC2)
+Interacctuar: Se mostrará un mensaje cuando puedas interactuar con un personaje u objeto, puslando la tecla E se realiza la interacción.
+
+Disparar: Clic izquierdo del ratón.
+
+Correr: Tecla Shift.
+
+## Contenido del prototipo (PEC3)
 
 En esta versión se ha implementado:
 
 - Escena inicial: jardín invernal abandonado, construido con un TileMap y tiles 32×32
 que simulan barro, piedras y charcos.
 
+- Passillo que conecta varias salas.
+
+- SafeRoom simple sin interacción de guardado.
+
+- Habitación con inteacción clave con NPC de niña.
+
+- Sala de contadores con interracción para encender la luz.
+
+- Salón con enemigo básico.
+  
+- Laboratorio sin interacciones.
+
 - Personaje jugable:
   - Movimiento en 2D con CharacterBody2D.
   - Colisiones básicas contra los límites de la zona.
   - Cámara que sigue al jugador mediante Camera2D.
-
-- Interacción clave:
-  - Objeto recogible (arma) en el jardín.
-  - Al recogerlo se muestra un mensaje en pantalla:
-    "Has recogido el arma"
-  - El objeto desaparece tras ser recogido.
+  - Lógica de vida
+  - Lógica de ataque
 
 - HUD simple:
-  - Capa CanvasLayer con un Label para mostrar mensajes temporales.
-  - El mensaje se oculta automáticamente tras unos segundos.
+  - Para mostar cuadros de dialogo
+  - Mostrar mensajes que se ocultan automáticamente tras unos segundos.
+  - Bara de vida y de munición
 
 ## Errores conocidos
 
