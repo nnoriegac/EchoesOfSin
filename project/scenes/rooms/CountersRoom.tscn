@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5lgkre2a7pts"]
+[gd_scene load_steps=12 format=3 uid="uid://b5lgkre2a7pts"]
 
 [ext_resource type="Texture2D" uid="uid://dbuaetf0rwusu" path="res://sprites/CountersRoom/CountersRoom.png" id="1_cesf0"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_n2nsg"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_mgenp"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_n2nsg"]
+[ext_resource type="PackedScene" uid="uid://cyorti3ykbo40" path="res://scenes/PuzzleCounter.tscn" id="5_4xkit"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a70lr"]
 size = Vector2(72.5, 61)
@@ -77,5 +78,8 @@ shape = SubResource("RectangleShape2D_njp77")
 
 [node name="Player" parent="." instance=ExtResource("2_mgenp")]
 position = Vector2(485, 293)
+
+[node name="PuzzleCounter" parent="." instance=ExtResource("5_4xkit")]
+position = Vector2(26, 472)
 
 [editable path="Door"]

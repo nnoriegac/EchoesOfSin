@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyorti3ykbo40"]
+
+[ext_resource type="Script" uid="uid://biifxww1nx4fq" path="res://scripts/puzzle_counter.gd" id="1_x3nj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca7ga"]
+size = Vector2(75, 190.5)
+
+[node name="PuzzleCounter" type="Area2D"]
+script = ExtResource("1_x3nj3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(36, 94.75)
+shape = SubResource("RectangleShape2D_ca7ga")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

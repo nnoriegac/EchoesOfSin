@@ -10,7 +10,12 @@ font_size = 36
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_biyii")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -33,17 +38,17 @@ label_settings = SubResource("LabelSettings_q8x7y")
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 481.0
-offset_top = 247.0
-offset_right = 708.0
-offset_bottom = 302.0
+offset_left = 494.0
+offset_top = 241.0
+offset_right = 721.0
+offset_bottom = 296.0
 text = "Has muerto"
 label_settings = SubResource("LabelSettings_biyii")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 517.0
-offset_top = 345.0
-offset_right = 657.0
-offset_bottom = 392.0
+offset_left = 523.0
+offset_top = 341.0
+offset_right = 663.0
+offset_bottom = 388.0
 text = "REINTENTAR"
