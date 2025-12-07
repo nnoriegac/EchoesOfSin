@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ekbbb0fviir7"]
+[gd_scene load_steps=12 format=3 uid="uid://ekbbb0fviir7"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_j0bqs"]
 [ext_resource type="Texture2D" uid="uid://duadfjew723ks" path="res://sprites/Room1/Room1.png" id="1_tfpoq"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_eud5g"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_j0bqs"]
+[ext_resource type="PackedScene" uid="uid://dkawvfbcyd8p" path="res://scenes/LittleGirl.tscn" id="5_wd6xt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(397, 139)
@@ -19,6 +20,9 @@ size = Vector2(66, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd6xt"]
 size = Vector2(22.108887, 113.99753)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wd6xt"]
+radius = 20.880613
 
 [node name="SafeRoom" type="Node2D"]
 
@@ -69,7 +73,24 @@ texture = null
 position = Vector2(106.18976, 62.7632)
 shape = SubResource("RectangleShape2D_wd6xt")
 
+[node name="LittleGirl" parent="." instance=ExtResource("5_wd6xt")]
+position = Vector2(33, 67)
+
+[node name="Sprite2D" parent="LittleGirl" index="0"]
+position = Vector2(288, 344.00003)
+scale = Vector2(2.7450194, 3.1921442)
+
+[node name="CollisionShape2D" parent="LittleGirl" index="1"]
+position = Vector2(75, 114)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LittleGirl"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LittleGirl/StaticBody2D"]
+position = Vector2(76, 101)
+shape = SubResource("CircleShape2D_wd6xt")
+
 [node name="Player" parent="." instance=ExtResource("2_eud5g")]
-position = Vector2(257, 556)
+position = Vector2(257, 548)
 
 [editable path="Door"]
+[editable path="LittleGirl"]

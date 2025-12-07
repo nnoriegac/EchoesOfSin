@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dle86qytbnnks"]
+[gd_scene load_steps=16 format=3 uid="uid://dle86qytbnnks"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_eafcu"]
 [ext_resource type="Texture2D" uid="uid://ddy23485dhvso" path="res://sprites/LivingRoom/LivingRoom.png" id="1_scqvq"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_eafcu"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_m5uh3"]
+[ext_resource type="PackedScene" uid="uid://dmfago2ugl2un" path="res://scenes/Enemy.tscn" id="4_rdbsd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eafcu"]
 size = Vector2(935.5, 216)
@@ -156,6 +157,15 @@ rotation = -1.5667609
 position = Vector2(404.5, 901.25)
 shape = SubResource("RectangleShape2D_e2ykf")
 
+[node name="Enemy" parent="." instance=ExtResource("4_rdbsd")]
+position = Vector2(422, 421)
+
+[node name="CollisionShape2D" parent="Enemy" index="0"]
+position = Vector2(6, 6)
+
+[node name="Sprite2D" parent="Enemy" index="1"]
+position = Vector2(193, 366)
+
 [node name="Player" parent="." instance=ExtResource("2_m5uh3")]
 position = Vector2(433, -308)
 
@@ -163,3 +173,4 @@ position = Vector2(433, -308)
 [editable path="Door2"]
 [editable path="Door3"]
 [editable path="Door4"]
+[editable path="Enemy"]

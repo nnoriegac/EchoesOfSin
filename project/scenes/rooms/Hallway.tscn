@@ -146,7 +146,7 @@ shape = SubResource("RectangleShape2D_2q6rj")
 position = Vector2(93, 74)
 target_scene = "res://scenes/rooms/LivingRoom.tscn"
 locked = true
-required_key = "key_livingroom"
+required_key = "key_living_room"
 
 [node name="Sprite2D" parent="Door3" index="0"]
 texture = null

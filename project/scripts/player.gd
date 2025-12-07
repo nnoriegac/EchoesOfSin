@@ -27,7 +27,7 @@ func _physics_process(delta):
 func take_damage(amount: int) -> void:
 	GameState.damage_player(amount)
 	
-	var hud = get_parent().get_first_node_in_group("hud")
+	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.update_hp(GameState.player_hp, GameState.player_hp_max)
 	

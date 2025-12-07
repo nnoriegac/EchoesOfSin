@@ -18,6 +18,11 @@ func _ready() -> void:
 	update_hp(GameState.player_hp, GameState.player_hp_max)
 	update_ammo(GameState.ammo, GameState.ammo_max)
 
+func show_message(text: String) -> void:
+	message_label.text = text
+	message_label.visible = true
+	await get_tree().create_timer(message_duration).timeout
+	message_label.visible = false
 
 # muestre mensaje cuando recoges item
 func show_pickup_dialog(text: String) -> void:

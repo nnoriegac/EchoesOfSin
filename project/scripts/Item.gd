@@ -25,12 +25,16 @@ func _on_body_entered(body):
 	# ARMA
 	if gives_weapon:
 		GameState.add_item(item_id)
-		body.unlock_weapon(item_id) # luego crearemos esta función
+		body.unlock_weapon(item_id) 
 	
-	# Mostrar mensaje (si tienes HUD)
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.show_pickup_dialog("Has recogido " + item_id)
 
 	# Eliminar el objeto del mapa
 	queue_free()
+
+func _ready() -> void:
+	# Si es una llave y ya la tiene el jugador, no mostramos el item
+	if is_key and GameState.has_key(item_id):
+		queue_free()

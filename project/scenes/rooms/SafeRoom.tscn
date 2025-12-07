@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjygcvqjtyn33"]
+[gd_scene load_steps=12 format=3 uid="uid://bjygcvqjtyn33"]
 
 [ext_resource type="Texture2D" uid="uid://c4oaghmsaj8so" path="res://sprites/SafeRoom1/SafeRoom1.png" id="1_4xo85"]
+[ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_qu2cq"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_k1iyv"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_qe7lq"]
+[ext_resource type="PackedScene" uid="uid://cl457abdpt8wt" path="res://scenes/SaveGame.tscn" id="4_qe7lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(621, 139)
@@ -23,6 +25,8 @@ size = Vector2(110, 206)
 size = Vector2(20, 111)
 
 [node name="SafeRoom" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_qu2cq")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
@@ -70,5 +74,11 @@ shape = SubResource("RectangleShape2D_rmk3q")
 
 [node name="Player" parent="." instance=ExtResource("2_k1iyv")]
 position = Vector2(635, 360)
+
+[node name="SaveGame" parent="." instance=ExtResource("4_qe7lq")]
+position = Vector2(74, 370)
+
+[connection signal="body_entered" from="SaveGame" to="SaveGame" method="_on_body_entered"]
+[connection signal="body_exited" from="SaveGame" to="SaveGame" method="_on_body_exited"]
 
 [editable path="Door"]

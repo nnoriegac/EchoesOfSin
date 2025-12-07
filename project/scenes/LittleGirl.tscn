@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkawvfbcyd8p"]
+
+[ext_resource type="Script" uid="uid://b0l1sh6ou3koh" path="res://scripts/little_girl.gd" id="1_lbw6o"]
+[ext_resource type="Texture2D" uid="uid://bsnvqm60thtoj" path="res://sprites/characters/little_girl.png" id="2_mfhl8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dr5f"]
+size = Vector2(38, 76)
+
+[node name="LittleGirl" type="Area2D"]
+script = ExtResource("1_lbw6o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(441, 476.00006)
+scale = Vector2(4.7046876, 5.36875)
+texture = ExtResource("2_mfhl8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(77.5, 85.75)
+shape = SubResource("RectangleShape2D_3dr5f")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

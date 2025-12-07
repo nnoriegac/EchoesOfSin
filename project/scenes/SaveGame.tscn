@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl457abdpt8wt"]
+
+[ext_resource type="Script" uid="uid://byyhosn878f5q" path="res://scripts/save_game.gd" id="1_816xb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ch7s"]
+size = Vector2(71, 61)
+
+[node name="SaveGame" type="Area2D"]
+script = ExtResource("1_816xb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25.5, 20.5)
+shape = SubResource("RectangleShape2D_8ch7s")

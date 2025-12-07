@@ -29,3 +29,8 @@ func change_scene() -> void:
 		return
 	
 	get_tree().change_scene_to_file(target_scene)
+
+func _ready() -> void:
+	# Si la puerta requiere llave y el jugador YA la tiene, arrancamos desbloqueada
+	if required_key != "" and GameState.has_key(required_key):
+		locked = false
