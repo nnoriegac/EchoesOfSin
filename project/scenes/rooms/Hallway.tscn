@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://10h0mls1aaca"]
+[gd_scene load_steps=24 format=3 uid="uid://10h0mls1aaca"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_6fd4u"]
 [ext_resource type="Texture2D" uid="uid://d4hiam0nte0sh" path="res://sprites/Hallway/hallway.png" id="1_6smnc"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="1_t0rdd"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="3_1ps0b"]
+[ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="5_2mgge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps0b"]
 size = Vector2(2019.5, 183.5)
@@ -266,6 +267,16 @@ shape = SubResource("RectangleShape2D_mfk48")
 
 [node name="Player" parent="." instance=ExtResource("1_t0rdd")]
 position = Vector2(972, 225)
+
+[node name="DarkOverlay2" type="ColorRect" parent="."]
+offset_left = -1407.0
+offset_top = -530.0
+offset_right = 1438.0
+offset_bottom = 747.0
+color = Color(0, 0, 0, 0.7254902)
+script = ExtResource("5_2mgge")
+
+[connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
 
 [editable path="Door"]
 [editable path="Door2"]

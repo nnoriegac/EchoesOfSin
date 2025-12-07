@@ -28,5 +28,13 @@ func interact() -> void:
 	if not hud:
 		return
 	
-	# Mostrar el diálogo de la safeRoom
+	# Mostrar el diálogo de la sala de contadores
 	hud.start_dialog(dialog_lines)
+	
+	# Activar la luz global
+	GameState.power_on = true
+	
+	# Quitar oscuridad en la sala actual
+	var overlay = get_tree().current_scene.get_node_or_null("DarkOverlay")
+	if overlay:
+		overlay.visible = false
