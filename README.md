@@ -41,7 +41,7 @@ Movimiento: WASD o flechas
 
 Recoger armas y llaves: acercarse al objeto (arma o llave); la recogida se realiza automáticamente al entrar en el área.
 
-Interacctuar: Se mostrará un mensaje cuando puedas interactuar con un personaje u objeto, puslando la tecla E se realiza la interacción.
+Interactuar: Se mostrará un mensaje cuando puedas interactuar con un personaje u objeto, puslando la tecla E se realiza la interacción.
 
 Disparar: Clic izquierdo del ratón.
 
