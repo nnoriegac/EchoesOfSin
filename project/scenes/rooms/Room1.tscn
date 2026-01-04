@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ekbbb0fviir7"]
+[gd_scene load_steps=12 format=3 uid="uid://ekbbb0fviir7"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_j0bqs"]
-[ext_resource type="Texture2D" uid="uid://duadfjew723ks" path="res://sprites/Room1/Room1.png" id="1_tfpoq"]
-[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_eud5g"]
+[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_eud5g"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_j0bqs"]
-[ext_resource type="PackedScene" uid="uid://dkawvfbcyd8p" path="res://scenes/LittleGirl.tscn" id="5_wd6xt"]
+[ext_resource type="PackedScene" uid="uid://dkawvfbcyd8p" path="res://scenes/characters/LittleGirl.tscn" id="5_wd6xt"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_nf2ix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
@@ -32,7 +31,6 @@ radius = 20.880613
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
 scale = Vector2(2.4945314, 2.5993056)
-texture = ExtResource("1_tfpoq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -76,6 +74,7 @@ shape = SubResource("RectangleShape2D_wd6xt")
 
 [node name="LittleGirl" parent="." instance=ExtResource("5_wd6xt")]
 position = Vector2(33, 67)
+key_id = "la llave de la habitacíon pequeña."
 
 [node name="Sprite2D" parent="LittleGirl" index="0"]
 position = Vector2(288, 344.00003)

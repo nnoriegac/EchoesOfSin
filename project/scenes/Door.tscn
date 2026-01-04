@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://cuooya1kgbcj" path="res://sprites/door.png" id="2_mg2as"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ebfc"]
-size = Vector2(76, 399.39807)
+size = Vector2(12.375, 71.99019)
 
 [node name="Door" type="Area2D"]
 script = ExtResource("1_eyv6f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-136, 327)
-scale = Vector2(2.648242, 2.7055557)
+position = Vector2(14, 198)
+scale = Vector2(1.1397461, 1.3333333)
 texture = ExtResource("2_mg2as")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(127.5, 65)
+position = Vector2(126, 68)
 shape = SubResource("RectangleShape2D_1ebfc")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

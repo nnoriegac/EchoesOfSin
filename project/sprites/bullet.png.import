@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vechgg71mr04"
-path="res://.godot/imported/floor.png-7ec30f3936a196aa7edd1a88c1968ccd.ctex"
+uid="uid://bhkr36im18y8v"
+path="res://.godot/imported/bullet.png-bf127d53460a0826f847c19a5a1ace6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Garden/floor.png"
-dest_files=["res://.godot/imported/floor.png-7ec30f3936a196aa7edd1a88c1968ccd.ctex"]
+source_file="res://sprites/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-bf127d53460a0826f847c19a5a1ace6c.ctex"]
 
 [params]
 

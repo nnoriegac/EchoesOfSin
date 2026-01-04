@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_eafcu"]
 [ext_resource type="Texture2D" uid="uid://ddy23485dhvso" path="res://sprites/LivingRoom/LivingRoom.png" id="1_scqvq"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_eafcu"]
-[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_m5uh3"]
-[ext_resource type="PackedScene" uid="uid://dmfago2ugl2un" path="res://scenes/Enemy.tscn" id="4_rdbsd"]
+[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_m5uh3"]
+[ext_resource type="PackedScene" uid="uid://dmfago2ugl2un" path="res://scenes/characters/Enemy.tscn" id="4_rdbsd"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_4tfso"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eafcu"]

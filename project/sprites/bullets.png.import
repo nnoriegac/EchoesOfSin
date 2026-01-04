@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cht1rwnqmsf4s"
-path="res://.godot/imported/icono_vida.png-ed7146f5b6fd91a956b3d93f5eafb2cb.ctex"
+uid="uid://ctg6j3jgkvcxw"
+path="res://.godot/imported/bullets.png-f78671bca05f460b71f75b2090fd2d01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/icono_vida.png"
-dest_files=["res://.godot/imported/icono_vida.png-ed7146f5b6fd91a956b3d93f5eafb2cb.ctex"]
+source_file="res://sprites/bullets.png"
+dest_files=["res://.godot/imported/bullets.png-f78671bca05f460b71f75b2090fd2d01.ctex"]
 
 [params]
 

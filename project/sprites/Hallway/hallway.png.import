@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4hiam0nte0sh"
-path="res://.godot/imported/hallway.png-68680da94625b040300f9a2e70c84f67.ctex"
+uid="uid://ct0bph3b2in0r"
+path="res://.godot/imported/Hallway.png-e24ba334a4d8a54560cff74c6a172561.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Hallway/hallway.png"
-dest_files=["res://.godot/imported/hallway.png-68680da94625b040300f9a2e70c84f67.ctex"]
+source_file="res://sprites/Hallway/Hallway.png"
+dest_files=["res://.godot/imported/Hallway.png-e24ba334a4d8a54560cff74c6a172561.ctex"]
 
 [params]
 
@@ -31,10 +31,10 @@ process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

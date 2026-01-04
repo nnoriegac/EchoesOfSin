@@ -1,87 +1,31 @@
 [gd_scene load_steps=13 format=3 uid="uid://b5lgkre2a7pts"]
 
-[ext_resource type="Texture2D" uid="uid://dbuaetf0rwusu" path="res://sprites/CountersRoom/CountersRoom.png" id="1_cesf0"]
+[ext_resource type="Texture2D" uid="uid://c23o4xv0c3r1m" path="res://sprites/CountersRoom/CountersRoom.png" id="1_cesf0"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_n2nsg"]
-[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_mgenp"]
+[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_mgenp"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_n2nsg"]
 [ext_resource type="PackedScene" uid="uid://cyorti3ykbo40" path="res://scenes/PuzzleCounter.tscn" id="5_4xkit"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_njp77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a70lr"]
-size = Vector2(72.5, 61)
+size = Vector2(60, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cesf0"]
-size = Vector2(278, 126)
+size = Vector2(94, 73)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mgenp"]
-size = Vector2(490, 177)
+size = Vector2(45, 87.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2nsg"]
-size = Vector2(57, 271)
+size = Vector2(21.5, 85.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xkit"]
-size = Vector2(482, 16)
+size = Vector2(160, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njp77"]
-size = Vector2(20, 774)
+size = Vector2(20, 239)
 
 [node name="CountersRoom" type="Node2D"]
-
-[node name="HUD" parent="." instance=ExtResource("1_n2nsg")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(307.06253, 422)
-scale = Vector2(3.0404294, 3.173264)
-texture = ExtResource("1_cesf0")
-
-[node name="Door" parent="." instance=ExtResource("2_n2nsg")]
-position = Vector2(2, 0)
-target_scene = "res://scenes/rooms/Hallway.tscn"
-
-[node name="Sprite2D" parent="Door" index="0"]
-position = Vector2(178, 456)
-scale = Vector2(2.625586, 2.7729166)
-
-[node name="CollisionShape2D" parent="Door" index="1"]
-position = Vector2(439, 51)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
-position = Vector2(437.75, 154.5)
-shape = SubResource("RectangleShape2D_a70lr")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(172, 150)
-shape = SubResource("RectangleShape2D_cesf0")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(263, 93.5)
-shape = SubResource("RectangleShape2D_mgenp")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(62.5, 608.5)
-shape = SubResource("RectangleShape2D_n2nsg")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(262, 761)
-shape = SubResource("RectangleShape2D_4xkit")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(20, 382)
-shape = SubResource("RectangleShape2D_njp77")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(500, 394)
-shape = SubResource("RectangleShape2D_njp77")
-
-[node name="Player" parent="." instance=ExtResource("2_mgenp")]
-position = Vector2(485, 293)
-
-[node name="PuzzleCounter" parent="." instance=ExtResource("5_4xkit")]
-position = Vector2(26, 472)
 
 [node name="DarkOverlay" type="ColorRect" parent="."]
 offset_left = -58.0
@@ -90,6 +34,61 @@ offset_right = 747.0
 offset_bottom = 830.0
 color = Color(0, 0, 0, 0.7254902)
 script = ExtResource("6_njp77")
+
+[node name="HUD" parent="." instance=ExtResource("1_n2nsg")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(307.06253, 422)
+texture = ExtResource("1_cesf0")
+
+[node name="Door" parent="." instance=ExtResource("2_n2nsg")]
+position = Vector2(2, 0)
+target_scene = "res://scenes/rooms/Hallway.tscn"
+
+[node name="Sprite2D" parent="Door" index="0"]
+position = Vector2(268, 430)
+scale = Vector2(0.8088257, 0.84461796)
+
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(348, 321)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(336, 321)
+shape = SubResource("RectangleShape2D_a70lr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(261, 326.5)
+shape = SubResource("RectangleShape2D_cesf0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(238.5, 427.25)
+shape = SubResource("RectangleShape2D_mgenp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(225.75, 480.875)
+shape = SubResource("RectangleShape2D_n2nsg")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(291, 529)
+shape = SubResource("RectangleShape2D_4xkit")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(205, 411)
+shape = SubResource("RectangleShape2D_njp77")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(378, 411)
+shape = SubResource("RectangleShape2D_njp77")
+
+[node name="Player" parent="." instance=ExtResource("2_mgenp")]
+position = Vector2(346, 372)
+
+[node name="PuzzleCounter" parent="." instance=ExtResource("5_4xkit")]
+position = Vector2(165, 471)
 
 [connection signal="ready" from="." to="DarkOverlay" method="_on_counters_room_ready"]
 [connection signal="ready" from="DarkOverlay" to="DarkOverlay" method="_on_ready"]

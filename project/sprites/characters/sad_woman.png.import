@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6pt5gb0hvenf"
-path="res://.godot/imported/fountain1.png-7fa5c0acb4b86fc4aea9b81682e248f6.ctex"
+uid="uid://bue08a1s28evk"
+path="res://.godot/imported/sad_woman.png-2336af7651449fa42f9c07a0a0578025.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Garden/fountain1.png"
-dest_files=["res://.godot/imported/fountain1.png-7fa5c0acb4b86fc4aea9b81682e248f6.ctex"]
+source_file="res://sprites/characters/sad_woman.png"
+dest_files=["res://.godot/imported/sad_woman.png-2336af7651449fa42f9c07a0a0578025.ctex"]
 
 [params]
 
@@ -31,10 +31,10 @@ process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

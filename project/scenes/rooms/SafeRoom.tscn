@@ -1,108 +1,188 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjygcvqjtyn33"]
+[gd_scene load_steps=23 format=3 uid="uid://bjygcvqjtyn33"]
 
-[ext_resource type="Texture2D" uid="uid://c4oaghmsaj8so" path="res://sprites/SafeRoom1/SafeRoom1.png" id="1_4xo85"]
+[ext_resource type="Texture2D" uid="uid://cjo7vkoiie201" path="res://sprites/SafeRoom1/SafeRoom1.png" id="1_4xo85"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_qu2cq"]
-[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/player.tscn" id="2_k1iyv"]
+[ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_k1iyv"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_qe7lq"]
+[ext_resource type="Script" uid="uid://bpc57hunotbi1" path="res://scenes/rooms/heal_drawer.gd" id="4_5ix5c"]
 [ext_resource type="PackedScene" uid="uid://cl457abdpt8wt" path="res://scenes/SaveGame.tscn" id="4_qe7lq"]
+[ext_resource type="Texture2D" uid="uid://o05jf04doxqf" path="res://sprites/SafeRoom1/SafeRoomLampara.png" id="6_kpngv"]
 [ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="6_rmk3q"]
-[ext_resource type="Texture2D" uid="uid://d2si4t8ytf38v" path="res://sprites/icono_municion.png" id="7_kpngv"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="8_kpngv"]
+[ext_resource type="Script" uid="uid://c7vqjhj8fq2dt" path="res://scenes/rooms/mirror.gd" id="10_f1vfo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
-size = Vector2(621, 139)
+size = Vector2(621, 68.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1iyv"]
-size = Vector2(20, 629)
+size = Vector2(7, 238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe7lq"]
-size = Vector2(15.5, 203)
+size = Vector2(55.375, 106.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu2cq"]
 size = Vector2(598, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdrjp"]
-size = Vector2(110, 206)
+size = Vector2(44, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpngv"]
+size = Vector2(88, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1vfo"]
+size = Vector2(15, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ei6f7"]
+size = Vector2(4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ii54"]
+size = Vector2(16, 8.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rmk3q"]
-size = Vector2(20, 111)
+size = Vector2(10.5, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ix5c"]
+size = Vector2(8, 9.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8mgn"]
+size = Vector2(18, 19)
 
 [node name="SafeRoom" type="Node2D"]
+
+[node name="DarkOverlay2" type="ColorRect" parent="."]
+offset_left = -36.0
+offset_top = -110.0
+offset_right = 769.0
+offset_bottom = 750.0
+color = Color(0, 0, 0, 0.7254902)
+script = ExtResource("8_kpngv")
 
 [node name="HUD" parent="." instance=ExtResource("1_qu2cq")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
-scale = Vector2(2.4945314, 2.5993056)
 texture = ExtResource("1_4xo85")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(313.5, 49.5)
+position = Vector2(309, 221.75)
 shape = SubResource("RectangleShape2D_4xo85")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3, 291.5)
+position = Vector2(175.5, 311)
 shape = SubResource("RectangleShape2D_k1iyv")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(619, 216)
+position = Vector2(396.3125, 266)
 shape = SubResource("RectangleShape2D_qe7lq")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(619, 524)
+position = Vector2(447, 416)
 shape = SubResource("RectangleShape2D_qe7lq")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(312, 599.5)
+position = Vector2(333, 436)
 shape = SubResource("RectangleShape2D_qu2cq")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(69, 368)
+position = Vector2(201, 343)
 shape = SubResource("RectangleShape2D_kdrjp")
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(263, 243)
+shape = SubResource("RectangleShape2D_kpngv")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(234, 343)
+shape = SubResource("RectangleShape2D_f1vfo")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(240, 338)
+shape = SubResource("RectangleShape2D_ei6f7")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(357, 262.75)
+shape = SubResource("RectangleShape2D_1ii54")
+
 [node name="Door" parent="." instance=ExtResource("2_qe7lq")]
-position = Vector2(531, 290)
+position = Vector2(535, 294)
 target_scene = "res://scenes/rooms/Hallway.tscn"
 
 [node name="Sprite2D" parent="Door" index="0"]
 texture = null
 
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(-106, 49)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+position = Vector2(-5, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
-position = Vector2(105, 79.5)
+position = Vector2(-101, 39)
 shape = SubResource("RectangleShape2D_rmk3q")
 
 [node name="Player" parent="." instance=ExtResource("2_k1iyv")]
-position = Vector2(635, 360)
+position = Vector2(320, 287)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(290, 325)
+texture = ExtResource("6_kpngv")
 
 [node name="SaveGame" parent="." instance=ExtResource("4_qe7lq")]
-position = Vector2(74, 370)
+position = Vector2(192, 341)
 
 [node name="Item" parent="." instance=ExtResource("6_rmk3q")]
+item_id = "munición."
 ammo_amount = 10
+sprite_anim = &"ammo"
 
 [node name="CollisionShape2D" parent="Item" index="0"]
-position = Vector2(116, 295)
+position = Vector2(217.73499, 307)
 
-[node name="Sprite2D" parent="Item" index="1"]
-position = Vector2(115, 296.3125)
-scale = Vector2(0.125, 0.06311036)
-texture = ExtResource("7_kpngv")
+[node name="AnimatedSprite2D" parent="Item" index="1"]
+position = Vector2(217.625, 306)
+scale = Vector2(0.16406263, 0.15625045)
 
-[node name="DarkOverlay2" type="ColorRect" parent="."]
-offset_left = -36.0
-offset_top = -87.0
-offset_right = 769.0
-offset_bottom = 773.0
-color = Color(0, 0, 0, 0.7254902)
-script = ExtResource("8_kpngv")
+[node name="Item2" parent="." instance=ExtResource("6_rmk3q")]
+item_id = "una cura."
+heal_amount = 1
+ammo_amount = 10
+sprite_anim = &"heal"
 
+[node name="CollisionShape2D" parent="Item2" index="0"]
+position = Vector2(218, 332)
+
+[node name="AnimatedSprite2D" parent="Item2" index="1"]
+position = Vector2(213, 327)
+scale = Vector2(0.4375, 0.4375)
+
+[node name="Drawer" type="Area2D" parent="."]
+position = Vector2(356, 267)
+script = ExtResource("4_5ix5c")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Drawer"]
+position = Vector2(1, -3.75)
+shape = SubResource("RectangleShape2D_5ix5c")
+
+[node name="Mirror" type="Area2D" parent="."]
+position = Vector2(264, 256)
+script = ExtResource("10_f1vfo")
+heal = null
+dialog_lines = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mirror"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_q8mgn")
+
+[connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
 [connection signal="body_entered" from="SaveGame" to="SaveGame" method="_on_body_entered"]
 [connection signal="body_exited" from="SaveGame" to="SaveGame" method="_on_body_exited"]
-[connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
+[connection signal="body_entered" from="Drawer" to="Drawer" method="_on_body_entered"]
+[connection signal="body_exited" from="Drawer" to="Drawer" method="_on_body_exited"]
+[connection signal="body_entered" from="Mirror" to="Mirror" method="_on_body_entered"]
+[connection signal="body_exited" from="Mirror" to="Mirror" method="_on_body_exited"]
 
 [editable path="Door"]
 [editable path="Item"]
+[editable path="Item2"]

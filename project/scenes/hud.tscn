@@ -1,14 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceppm3w5sfetp"]
+[gd_scene load_steps=12 format=3 uid="uid://ceppm3w5sfetp"]
 
 [ext_resource type="Script" uid="uid://d2mnccn2i6fjh" path="res://scripts/HUD.gd" id="1_ahhtf"]
-[ext_resource type="Texture2D" uid="uid://cht1rwnqmsf4s" path="res://sprites/icono_vida.png" id="2_1etfg"]
-[ext_resource type="Texture2D" uid="uid://d2si4t8ytf38v" path="res://sprites/icono_municion.png" id="3_7hsmw"]
+[ext_resource type="Texture2D" uid="uid://b5wf3mwhowsju" path="res://sprites/life.png" id="2_1etfg"]
+[ext_resource type="Texture2D" uid="uid://bhkr36im18y8v" path="res://sprites/bullet.png" id="3_1etfg"]
+[ext_resource type="Texture2D" uid="uid://bp4wqh5odhobb" path="res://sprites/Items/healing.png" id="4_7hsmw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1etfg"]
+font_size = 9
 
 [sub_resource type="LabelSettings" id="LabelSettings_qpvh6"]
-font_size = 20
+font_size = 9
 
 [sub_resource type="LabelSettings" id="LabelSettings_fls4u"]
-font_size = 20
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_7hsmw"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_nysna"]
+font_size = 9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6qnu"]
+atlas = ExtResource("4_7hsmw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4w17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6qnu")
+}],
+"loop": true,
+"name": &"heal",
+"speed": 5.0
+}]
 
 [node name="HUD" type="CanvasLayer" groups=["hud"]]
 script = ExtResource("1_ahhtf")
@@ -27,46 +52,61 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "¡Has recogido un objeto!"
+label_settings = SubResource("LabelSettings_1etfg")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="HpLabel" type="Label" parent="."]
-offset_left = 147.0
-offset_top = 63.0
-offset_right = 277.0
-offset_bottom = 91.0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 162.0
+offset_bottom = 36.0
 text = "Vida: 100/100"
 label_settings = SubResource("LabelSettings_qpvh6")
 
 [node name="Sprite2D" type="Sprite2D" parent="HpLabel"]
-position = Vector2(-42.000004, 12.000002)
-scale = Vector2(0.0791101, 0.06534288)
+position = Vector2(-15, 7)
 texture = ExtResource("2_1etfg")
 
 [node name="AmmoLabel" type="Label" parent="."]
-offset_left = 148.0
-offset_top = 127.0
-offset_right = 291.0
-offset_bottom = 155.0
+offset_left = 32.0
+offset_top = 27.0
+offset_right = 175.0
+offset_bottom = 41.0
 text = "Munición: 0/10"
 label_settings = SubResource("LabelSettings_fls4u")
 
 [node name="Sprite2D" type="Sprite2D" parent="AmmoLabel"]
-position = Vector2(-38, 34)
-scale = Vector2(0.18367346, 0.12744144)
-texture = ExtResource("3_7hsmw")
+position = Vector2(-15, 6)
+scale = Vector2(0.60156244, 0.53906244)
+texture = ExtResource("3_1etfg")
 
 [node name="DialogBox" type="Panel" parent="."]
-offset_left = 1095.0
-offset_top = 1086.0
-offset_right = 1854.0
-offset_bottom = 1203.0
+offset_left = 92.0
+offset_top = 239.0
+offset_right = 538.0
+offset_bottom = 316.0
 
 [node name="DialogText" type="Label" parent="DialogBox"]
 layout_mode = 0
-offset_left = 33.0
-offset_top = 20.0
-offset_right = 731.0
-offset_bottom = 94.0
+offset_left = 15.0
+offset_top = 18.0
+offset_right = 319.0
+offset_bottom = 60.0
 text = "Empieza la aventura ..."
+label_settings = SubResource("LabelSettings_7hsmw")
+
+[node name="HealsLabel" type="Label" parent="."]
+offset_left = 32.0
+offset_top = 47.0
+offset_right = 72.0
+offset_bottom = 60.0
+text = "Curas: 0"
+label_settings = SubResource("LabelSettings_nysna")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="HealsLabel"]
+position = Vector2(-15, 13)
+scale = Vector2(0.78125, 0.78125)
+sprite_frames = SubResource("SpriteFrames_k4w17")
+animation = &"heal"
