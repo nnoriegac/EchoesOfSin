@@ -12,6 +12,12 @@ var dialog_lines: Array[String] = []
 var dialog_index: int = 0
 var dialog_active: bool = false
 
+var choice_active: bool = false
+var choice_index: int = 0
+var choice_question: String = ""
+var choice_options: Array[String] = []
+var choice_callback: Callable = Callable()
+
 func _ready() -> void:
 	message_label.visible = false
 	dialog_box.visible = false
@@ -50,6 +56,10 @@ func start_dialog(lines: Array[String]) -> void:
 	if lines.is_empty():
 		return
 	
+	# Si hay choice activo, no mezclar sistemas
+	if choice_active:
+		return
+	
 	dialog_lines = lines
 	dialog_index = 0
 	dialog_active = true
@@ -78,6 +88,81 @@ func _advance_dialog() -> void:
 	else:
 		_show_current_line()
 
+# ---------- CHOICE (Sí/No, etc.) ----------
+func start_choice(question: String, options: Array, callback: Callable) -> void:
+	if options.size() < 2:
+		return
+
+	# Si hay diálogo activo, no mezclar
+	if dialog_active:
+		return
+
+	choice_active = true
+	choice_index = 0
+	choice_question = question
+	
+	choice_options.clear()
+	for o in options:
+		choice_options.append(str(o))
+		
+	choice_callback = callback
+
+	dialog_box.visible = true
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = false
+
+	_render_choice()
+
+func _render_choice() -> void:
+	# Ej: "> Sí   No"
+	var line := ""
+	for i in range(choice_options.size()):
+		if i == choice_index:
+			line += "> " + choice_options[i] + "   "
+		else:
+			line += "  " + choice_options[i] + "   "
+	dialog_text.text = choice_question + "\n" + line.strip_edges()
+
+func _confirm_choice() -> void:
+	var selected := choice_index
+	var selected_text := choice_options[choice_index]
+
+	# cerrar UI antes de ejecutar callback (evita bugs si el callback abre otros diálogos)
+	choice_active = false
+	dialog_box.visible = false
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = true
+
+	if choice_callback.is_valid():
+		choice_callback.call(selected, selected_text)
+
+func _cancel_choice() -> void:
+	choice_active = false
+	dialog_box.visible = false
+
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.can_move = true
+
 func _process(delta: float) -> void:
+	# CHOICE tiene prioridad sobre diálogo normal
+	if choice_active:
+		if Input.is_action_just_pressed("ui_left"):
+			choice_index = max(choice_index - 1, 0)
+			_render_choice()
+		elif Input.is_action_just_pressed("ui_right"):
+			choice_index = min(choice_index + 1, choice_options.size() - 1)
+			_render_choice()
+		elif Input.is_action_just_pressed("ui_accept"):
+			_confirm_choice()
+		elif Input.is_action_just_pressed("ui_cancel"):
+			_cancel_choice()
+		return
+	
+	# diálogo normal
 	if dialog_active and Input.is_action_just_pressed("ui_accept"):
 		_advance_dialog()

@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://bi71sojchqqjv"]
+
+[ext_resource type="Texture2D" uid="uid://dsavm08cprfgc" path="res://sprites/CountersRoom/CountersRoomPuzzle.png" id="1_71q8f"]
+[ext_resource type="Script" uid="uid://dub8r40g72lvc" path="res://scenes/switch_puzzle.gd" id="1_tsy07"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsy07"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 0, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ounb"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 360, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nch5v"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 720, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_brw77"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 1080, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5m3o"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 1440, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0ukc"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 1800, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0mic"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 2160, 640, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4sae"]
+atlas = ExtResource("1_71q8f")
+region = Rect2(0, 2520, 640, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dirgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsy07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ounb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nch5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_brw77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5m3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0ukc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0mic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4sae")
+}],
+"loop": true,
+"name": &"puzzle",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpo3x"]
+font_size = 9
+
+[node name="SwitchPuzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tsy07")
+
+[node name="SwitchAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(320, 479)
+sprite_frames = SubResource("SpriteFrames_dirgc")
+animation = &"puzzle"
+
+[node name="HintLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 321.0
+offset_right = 403.0
+offset_bottom = 344.0
+text = "Pulsa las teclas 1, 2 o 3 para ativar los interruptores"
+label_settings = SubResource("LabelSettings_kpo3x")

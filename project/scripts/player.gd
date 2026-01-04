@@ -21,6 +21,13 @@ var last_shoot_dir := Vector2.RIGHT
 var shooting := false
 var shooting_timer := 0.0
 
+var has_weapon: bool = false
+
+func _ready() -> void:
+	# Si ya se tenía arma de antes (por guardar estado), activarlo
+	has_weapon = GameState.has_item("weapon_CountersRoom")
+
+
 func _physics_process(delta):
 	if not can_move:
 		velocity = Vector2.ZERO
@@ -49,15 +56,21 @@ func _physics_process(delta):
 
 	# --- ATAQUE / DISPARO ---
 	if Input.is_action_just_pressed("shoot"):
-		# Calcula dirección real de la bala (ratón)
-		var dir = (get_global_mouse_position() - global_position)
 		
-		if dir.length() == 0:
-			dir = Vector2.RIGHT
-		last_shoot_dir = _dir_to_4way(dir)
-		
-		_start_shoot_anim()
-		shoot() 
+		if not has_weapon:
+			var hud = get_tree().get_first_node_in_group("hud")
+			if hud:
+				hud.show_message("No tienes arma.")
+		else:
+			# Calcula dirección real de la bala (ratón)
+			var dir = (get_global_mouse_position() - global_position)
+			
+			if dir.length() == 0:
+				dir = Vector2.RIGHT
+			last_shoot_dir = _dir_to_4way(dir)
+			
+			_start_shoot_anim()
+			shoot() 
 	
 	# --- ACTUALIZAR TEMPORIZADOR DE SHOOT ---
 	if shooting:
@@ -89,7 +102,7 @@ func _start_shoot_anim() -> void:
 
 func _update_animation(input: Vector2) -> void:
 	# 1) Si estamos en ventana de disparo: animación con arma según dirección de disparo
-	if shooting:
+	if shooting and has_weapon:
 		var anim := _anim_name("attack", last_shoot_dir)
 		# Evita reiniciar si ya está
 		if sprite.animation != anim:
@@ -161,13 +174,17 @@ func _unhandled_input(event: InputEvent) -> void:
 func unlock_weapon(weapon_id: String):
 	print("Arma obtenida:", weapon_id)
 	GameState.add_item(weapon_id)
-	# Más adelante aquí activo disparo, o cambiar modo de ataque ...
-
+	has_weapon = true
+	
 # ============================
 #   DISPARAR
 # ============================
 func shoot() -> void:
+	if not has_weapon:
+		return
+	
 	var hud = get_tree().get_first_node_in_group("hud")
+	
 	# ¿Hay munición?
 	if not GameState.spend_ammo(1):
 		if hud:

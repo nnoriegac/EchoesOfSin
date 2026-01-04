@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5lgkre2a7pts"]
+[gd_scene load_steps=16 format=3 uid="uid://b5lgkre2a7pts"]
 
 [ext_resource type="Texture2D" uid="uid://c23o4xv0c3r1m" path="res://sprites/CountersRoom/CountersRoom.png" id="1_cesf0"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_n2nsg"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_n2nsg"]
 [ext_resource type="PackedScene" uid="uid://cyorti3ykbo40" path="res://scenes/PuzzleCounter.tscn" id="5_4xkit"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_njp77"]
+[ext_resource type="Script" uid="uid://d3sh5lqedak7e" path="res://scenes/rooms/weaponCountersRoom.gd" id="7_a70lr"]
+[ext_resource type="PackedScene" uid="uid://bi71sojchqqjv" path="res://scenes/switch_puzzle.tscn" id="7_y5phe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a70lr"]
 size = Vector2(60, 62)
@@ -24,6 +26,9 @@ size = Vector2(160, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njp77"]
 size = Vector2(20, 239)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5phe"]
+size = Vector2(20, 39)
 
 [node name="CountersRoom" type="Node2D"]
 
@@ -89,8 +94,18 @@ position = Vector2(346, 372)
 
 [node name="PuzzleCounter" parent="." instance=ExtResource("5_4xkit")]
 position = Vector2(165, 471)
+puzzle_scene = ExtResource("7_y5phe")
+
+[node name="Weapon" type="Area2D" parent="."]
+script = ExtResource("7_a70lr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Weapon"]
+position = Vector2(288, 344)
+shape = SubResource("RectangleShape2D_y5phe")
 
 [connection signal="ready" from="." to="DarkOverlay" method="_on_counters_room_ready"]
 [connection signal="ready" from="DarkOverlay" to="DarkOverlay" method="_on_ready"]
+[connection signal="body_entered" from="Weapon" to="Weapon" method="_on_body_entered"]
+[connection signal="body_exited" from="Weapon" to="Weapon" method="_on_body_exited"]
 
 [editable path="Door"]
