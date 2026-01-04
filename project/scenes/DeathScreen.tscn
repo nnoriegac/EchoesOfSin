@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://tbwvnx117vyk" path="res://scripts/death_screen.gd" id="1_biyii"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q8x7y"]
-font_size = 50
+font_size = 35
 
 [sub_resource type="LabelSettings" id="LabelSettings_biyii"]
-font_size = 36
+font_size = 20
 
 [node name="DeathScreen" type="Control"]
 layout_mode = 3
@@ -19,36 +19,40 @@ grow_vertical = 2
 script = ExtResource("1_biyii")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(640, 360)
 layout_mode = 0
-offset_left = -4932.0
-offset_top = -4031.0
-offset_right = 5619.0
-offset_bottom = 5796.0
+offset_left = -4834.0
+offset_top = -3942.0
+offset_right = 5717.0
+offset_bottom = 5885.0
 color = Color(0.5019608, 0, 0.09411765, 1)
 
 [node name="Label" type="Label" parent="."]
+y_sort_enabled = true
 layout_mode = 0
-offset_left = 396.0
-offset_top = 132.0
-offset_right = 850.0
-offset_bottom = 273.0
+offset_left = -176.0
+offset_top = 48.0
+offset_right = 145.0
+offset_bottom = 161.0
 text = "FIN DE LA PARTIDA
 "
 label_settings = SubResource("LabelSettings_q8x7y")
 
 [node name="Label2" type="Label" parent="."]
+y_sort_enabled = true
 layout_mode = 0
-offset_left = 494.0
-offset_top = 241.0
-offset_right = 721.0
-offset_bottom = 296.0
+offset_left = -74.0
+offset_top = 115.0
+offset_right = 40.0
+offset_bottom = 170.0
 text = "Has muerto"
 label_settings = SubResource("LabelSettings_biyii")
 
 [node name="Button" type="Button" parent="."]
+y_sort_enabled = true
 layout_mode = 0
-offset_left = 523.0
-offset_top = 341.0
-offset_right = 663.0
-offset_bottom = 388.0
+offset_left = -88.0
+offset_top = 202.0
+offset_right = 52.0
+offset_bottom = 249.0
 text = "REINTENTAR"

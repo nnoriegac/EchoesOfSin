@@ -47,6 +47,12 @@ func _pickup() -> void:
 	if ammo_amount > 0:
 		GameState.add_ammo(ammo_amount)
 	
+	# ARMA
+	if gives_weapon:
+		GameState.add_item(item_id)
+		if player_ref and player_ref.has_method("unlock_weapon"):
+			player_ref.unlock_weapon(item_id)
+	
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
 		hud.show_pickup_dialog("Has recogido " + item_id)

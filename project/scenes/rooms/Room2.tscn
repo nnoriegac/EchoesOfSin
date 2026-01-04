@@ -1,28 +1,47 @@
-[gd_scene load_steps=14 format=3 uid="uid://cncdmakk13seh"]
+[gd_scene load_steps=22 format=3 uid="uid://cncdmakk13seh"]
 
-[ext_resource type="Texture2D" uid="uid://d2iij2wwb0j6s" path="res://sprites/Room2/Room2.png" id="1_2q7b5"]
+[ext_resource type="Texture2D" uid="uid://cftba1ra3pajr" path="res://sprites/Room2/Room2.png" id="1_2q7b5"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_jwyym"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_71j26"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="3_71j26"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="5_v52wf"]
+[ext_resource type="Script" uid="uid://dmeq3nycvx3vn" path="res://scenes/rooms/diary.gd" id="6_e0shg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
-size = Vector2(621, 139)
+size = Vector2(250, 64.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1iyv"]
-size = Vector2(20, 629)
+size = Vector2(4, 241.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe7lq"]
-size = Vector2(15.5, 203)
+size = Vector2(8.75, 70.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu2cq"]
-size = Vector2(391, 15)
+size = Vector2(162.25, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_71j26"]
-size = Vector2(101, 15)
+size = Vector2(46.5, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q7b5"]
-size = Vector2(110, 112)
+size = Vector2(43, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0shg"]
+size = Vector2(45.5, 89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50jb0"]
+size = Vector2(9, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1arn"]
+size = Vector2(15.375, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwb0y"]
+size = Vector2(56, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c0bta"]
+size = Vector2(15, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of3o0"]
+size = Vector2(3.75, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jwyym"]
 size = Vector2(20, 117.99628)
@@ -30,47 +49,89 @@ size = Vector2(20, 117.99628)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v52wf"]
 size = Vector2(20, 111)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8kbi"]
+size = Vector2(18, 19)
+
 [node name="SafeRoom" type="Node2D"]
+
+[node name="DarkOverlay" type="ColorRect" parent="."]
+offset_left = -37.0
+offset_top = -17.0
+offset_right = 768.0
+offset_bottom = 843.0
+color = Color(0, 0, 0, 0.7254902)
+script = ExtResource("5_v52wf")
 
 [node name="HUD" parent="." instance=ExtResource("1_jwyym")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(290.00003, 324.87497)
-scale = Vector2(2.4945314, 2.5993056)
 texture = ExtResource("1_2q7b5")
 
 [node name="Player" parent="." instance=ExtResource("2_71j26")]
-position = Vector2(498, 555)
+position = Vector2(275, 353)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(313.5, 49.5)
+position = Vector2(299, 223.75)
 shape = SubResource("RectangleShape2D_4xo85")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(3, 291.5)
+position = Vector2(176, 312.25)
 shape = SubResource("RectangleShape2D_k1iyv")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(619, 216)
+position = Vector2(423, 277.125)
 shape = SubResource("RectangleShape2D_qe7lq")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(619, 524)
+position = Vector2(424, 397.9375)
 shape = SubResource("RectangleShape2D_qe7lq")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(208.5, 599.5)
+position = Vector2(253.125, 431)
 shape = SubResource("RectangleShape2D_qu2cq")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(560, 598.5)
+position = Vector2(400.75, 435)
 shape = SubResource("RectangleShape2D_71j26")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(223, 193)
+position = Vector2(262.5, 283.5)
 shape = SubResource("RectangleShape2D_2q7b5")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(201.25, 355.5)
+shape = SubResource("RectangleShape2D_e0shg")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(188.5, 410.5)
+shape = SubResource("RectangleShape2D_50jb0")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(230.5, 259.5)
+shape = SubResource("RectangleShape2D_n1arn")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(296, 260)
+shape = SubResource("RectangleShape2D_n1arn")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(368, 256)
+shape = SubResource("RectangleShape2D_mwb0y")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(180, 254)
+shape = SubResource("RectangleShape2D_mwb0y")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(233, 352)
+shape = SubResource("RectangleShape2D_c0bta")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(239.125, 347)
+shape = SubResource("RectangleShape2D_of3o0")
 
 [node name="Door" parent="." instance=ExtResource("3_71j26")]
 position = Vector2(525, 510.00006)
@@ -80,10 +141,13 @@ target_scene = "res://scenes/rooms/Hallway.tscn"
 [node name="Sprite2D" parent="Door" index="0"]
 texture = null
 
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(-73.20708, 169.91095)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Door"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
-position = Vector2(106.85492, 70.13211)
+position = Vector2(-67.20097, 164.91827)
 shape = SubResource("RectangleShape2D_jwyym")
 
 [node name="Door2" parent="." instance=ExtResource("3_71j26")]
@@ -94,21 +158,26 @@ required_key = "key_baño2"
 [node name="Sprite2D" parent="Door2" index="0"]
 texture = null
 
+[node name="CollisionShape2D" parent="Door2" index="1"]
+position = Vector2(-103, 46)
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
-position = Vector2(105, 73)
+position = Vector2(-96, 52)
 shape = SubResource("RectangleShape2D_v52wf")
 
-[node name="DarkOverlay" type="ColorRect" parent="."]
-offset_left = -31.0
-offset_top = -42.0
-offset_right = 774.0
-offset_bottom = 818.0
-color = Color(0, 0, 0, 0.7254902)
-script = ExtResource("5_v52wf")
+[node name="Diary" type="Area2D" parent="."]
+position = Vector2(264, 256)
+script = ExtResource("6_e0shg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Diary"]
+position = Vector2(-47, 103)
+shape = SubResource("RectangleShape2D_e8kbi")
 
 [connection signal="ready" from="DarkOverlay" to="DarkOverlay" method="_on_ready"]
+[connection signal="body_entered" from="Diary" to="Diary" method="_on_body_entered"]
+[connection signal="body_exited" from="Diary" to="Diary" method="_on_body_exited"]
 
 [editable path="Door"]
 [editable path="Door2"]

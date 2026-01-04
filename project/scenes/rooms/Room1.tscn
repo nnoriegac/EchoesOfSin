@@ -1,96 +1,53 @@
-[gd_scene load_steps=12 format=3 uid="uid://ekbbb0fviir7"]
+[gd_scene load_steps=21 format=3 uid="uid://ekbbb0fviir7"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_j0bqs"]
+[ext_resource type="Texture2D" uid="uid://dw06hxr413xwr" path="res://sprites/Room1/Room1.png" id="1_tfpoq"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_eud5g"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_j0bqs"]
 [ext_resource type="PackedScene" uid="uid://dkawvfbcyd8p" path="res://scenes/characters/LittleGirl.tscn" id="5_wd6xt"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_nf2ix"]
+[ext_resource type="Script" uid="uid://0no4l4bcmutm" path="res://scenes/rooms/drawing.gd" id="7_gd78x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yj8na"]
+size = Vector2(4, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qyro"]
+size = Vector2(20, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
-size = Vector2(397, 139)
+size = Vector2(61, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1iyv"]
-size = Vector2(15, 626.5)
+size = Vector2(15, 241.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eud5g"]
-size = Vector2(170, 14)
+size = Vector2(69, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tfpoq"]
-size = Vector2(66, 116)
+size = Vector2(66, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nf2ix"]
+size = Vector2(60, 71.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gd78x"]
+size = Vector2(17, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d18c"]
+size = Vector2(45, 86.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vif0"]
+size = Vector2(12, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd6xt"]
 size = Vector2(22.108887, 113.99753)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wd6xt"]
-radius = 20.880613
+radius = 8.062258
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a26xk"]
+size = Vector2(18, 21.5)
 
 [node name="SafeRoom" type="Node2D"]
-
-[node name="HUD" parent="." instance=ExtResource("1_j0bqs")]
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(290.00003, 324.87497)
-scale = Vector2(2.4945314, 2.5993056)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(252.5, 49.5)
-shape = SubResource("RectangleShape2D_4xo85")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(56.5, 294.75)
-shape = SubResource("RectangleShape2D_k1iyv")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(446, 295)
-shape = SubResource("RectangleShape2D_k1iyv")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(78, 601)
-shape = SubResource("RectangleShape2D_eud5g")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(353, 602)
-shape = SubResource("RectangleShape2D_eud5g")
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(397, 199)
-shape = SubResource("RectangleShape2D_tfpoq")
-
-[node name="Door" parent="." instance=ExtResource("2_j0bqs")]
-position = Vector2(281, 513.00006)
-rotation = 1.5730176
-target_scene = "res://scenes/rooms/Hallway.tscn"
-
-[node name="Sprite2D" parent="Door" index="0"]
-texture = null
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
-position = Vector2(106.18976, 62.7632)
-shape = SubResource("RectangleShape2D_wd6xt")
-
-[node name="LittleGirl" parent="." instance=ExtResource("5_wd6xt")]
-position = Vector2(33, 67)
-key_id = "la llave de la habitacíon pequeña."
-
-[node name="Sprite2D" parent="LittleGirl" index="0"]
-position = Vector2(288, 344.00003)
-scale = Vector2(2.7450194, 3.1921442)
-
-[node name="CollisionShape2D" parent="LittleGirl" index="1"]
-position = Vector2(75, 114)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="LittleGirl"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LittleGirl/StaticBody2D"]
-position = Vector2(76, 101)
-shape = SubResource("CircleShape2D_wd6xt")
-
-[node name="Player" parent="." instance=ExtResource("2_eud5g")]
-position = Vector2(257, 548)
 
 [node name="DarkOverlay2" type="ColorRect" parent="."]
 offset_left = -125.0
@@ -100,7 +57,108 @@ offset_bottom = 769.0
 color = Color(0, 0, 0, 0.7254902)
 script = ExtResource("6_nf2ix")
 
+[node name="HUD" parent="." instance=ExtResource("1_j0bqs")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(290.00003, 324.87497)
+texture = ExtResource("1_tfpoq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D"]
+position = Vector2(-31.00003, 23.12503)
+shape = SubResource("RectangleShape2D_yj8na")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D"]
+position = Vector2(-87.00003, 83.62503)
+shape = SubResource("RectangleShape2D_7qyro")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(288.5, 225)
+shape = SubResource("RectangleShape2D_4xo85")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(191, 313)
+shape = SubResource("RectangleShape2D_k1iyv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(357, 314.375)
+shape = SubResource("RectangleShape2D_k1iyv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(204, 433)
+shape = SubResource("RectangleShape2D_eud5g")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(314.5, 433.5)
+shape = SubResource("RectangleShape2D_eud5g")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(352, 257)
+shape = SubResource("RectangleShape2D_tfpoq")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(228, 228.25)
+shape = SubResource("RectangleShape2D_nf2ix")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(309.5, 261)
+shape = SubResource("RectangleShape2D_gd78x")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(221.5, 354.75)
+shape = SubResource("RectangleShape2D_3d18c")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(251, 352.5)
+shape = SubResource("RectangleShape2D_7vif0")
+
+[node name="Door" parent="." instance=ExtResource("2_j0bqs")]
+position = Vector2(281, 513.00006)
+rotation = 1.5730176
+target_scene = "res://scenes/rooms/Hallway.tscn"
+
+[node name="Sprite2D" parent="Door" index="0"]
+texture = null
+
+[node name="CollisionShape2D" parent="Door" index="1"]
+position = Vector2(-73.95323, 21.164324)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
+position = Vector2(-66.926605, 33.148746)
+shape = SubResource("RectangleShape2D_wd6xt")
+
+[node name="LittleGirl" parent="." instance=ExtResource("5_wd6xt")]
+position = Vector2(33, 67)
+
+[node name="CollisionShape2D" parent="LittleGirl" index="0"]
+position = Vector2(184.5, 213)
+
+[node name="AnimatedSprite2D" parent="LittleGirl" index="1"]
+position = Vector2(181, 204)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LittleGirl"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LittleGirl/StaticBody2D"]
+position = Vector2(181, 203)
+shape = SubResource("CircleShape2D_wd6xt")
+
+[node name="Player" parent="." instance=ExtResource("2_eud5g")]
+position = Vector2(299, 366)
+
+[node name="Drawing" type="Area2D" parent="."]
+position = Vector2(264, 256)
+script = ExtResource("7_gd78x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Drawing"]
+position = Vector2(-28, 103.25)
+shape = SubResource("RectangleShape2D_a26xk")
+
 [connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
+[connection signal="body_entered" from="Drawing" to="Drawing" method="_on_body_entered"]
+[connection signal="body_exited" from="Drawing" to="Drawing" method="_on_body_exited"]
 
 [editable path="Door"]
 [editable path="LittleGirl"]

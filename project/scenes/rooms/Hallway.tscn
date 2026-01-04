@@ -1,10 +1,11 @@
-[gd_scene load_steps=24 format=3 uid="uid://10h0mls1aaca"]
+[gd_scene load_steps=25 format=3 uid="uid://10h0mls1aaca"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_6fd4u"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="1_t0rdd"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="3_1ps0b"]
 [ext_resource type="Texture2D" uid="uid://ct0bph3b2in0r" path="res://sprites/Hallway/Hallway.png" id="3_2mgge"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="5_2mgge"]
+[ext_resource type="PackedScene" uid="uid://bcilg02sud0kf" path="res://scenes/characters/Brother.tscn" id="6_pilky"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps0b"]
 size = Vector2(571, 61)
@@ -62,14 +63,6 @@ size = Vector2(26, 26)
 
 [node name="Hallway" type="Node2D"]
 
-[node name="DarkOverlay2" type="ColorRect" parent="."]
-offset_left = -1462.0
-offset_top = -383.0
-offset_right = 1383.0
-offset_bottom = 894.0
-color = Color(0, 0, 0, 0.7254902)
-script = ExtResource("5_2mgge")
-
 [node name="HUD" parent="." instance=ExtResource("1_6fd4u")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -117,6 +110,7 @@ shape = SubResource("RectangleShape2D_svu3l")
 [node name="Door" parent="." instance=ExtResource("3_1ps0b")]
 position = Vector2(1056, 167)
 target_scene = "res://scenes/rooms/start_area_garden.tscn"
+consume_key = false
 
 [node name="Sprite2D" parent="Door" index="0"]
 texture = null
@@ -133,6 +127,7 @@ shape = SubResource("RectangleShape2D_jkcx1")
 [node name="Door2" parent="." instance=ExtResource("3_1ps0b")]
 position = Vector2(-130, 81)
 target_scene = "res://scenes/rooms/CountersRoom.tscn"
+consume_key = false
 
 [node name="Sprite2D" parent="Door2" index="0"]
 position = Vector2(296.78125, 419.99997)
@@ -152,9 +147,11 @@ shape = SubResource("RectangleShape2D_2q6rj")
 
 [node name="Door3" parent="." instance=ExtResource("3_1ps0b")]
 position = Vector2(93, 74)
+world_id = "key_living_room"
 target_scene = "res://scenes/rooms/LivingRoom.tscn"
 locked = true
 required_key = "key_living_room"
+consume_key = false
 
 [node name="Sprite2D" parent="Door3" index="0"]
 texture = null
@@ -174,6 +171,7 @@ shape = SubResource("RectangleShape2D_5b767")
 position = Vector2(206, 45)
 locked = true
 required_key = "key_baño"
+consume_key = false
 
 [node name="Sprite2D" parent="Door4" index="0"]
 texture = null
@@ -191,6 +189,8 @@ shape = SubResource("RectangleShape2D_midbb")
 [node name="Door5" parent="." instance=ExtResource("3_1ps0b")]
 position = Vector2(351, 66)
 target_scene = "res://scenes/rooms/SafeRoom.tscn"
+consume_key = false
+set_flag_on_use = "entered_save_room_once"
 
 [node name="Sprite2D" parent="Door5" index="0"]
 texture = null
@@ -208,7 +208,8 @@ shape = SubResource("RectangleShape2D_7f00o")
 position = Vector2(366, 253)
 target_scene = "res://scenes/rooms/Room1.tscn"
 locked = true
-required_key = "la llave de la habitacíon pequeña."
+required_key = "la llave de la habitación pequeña."
+consume_key = false
 
 [node name="Sprite2D" parent="Door6" index="0"]
 position = Vector2(-593, 37.99999)
@@ -226,6 +227,7 @@ shape = SubResource("RectangleShape2D_buyp4")
 [node name="Door7" parent="." instance=ExtResource("3_1ps0b")]
 position = Vector2(243, 254)
 locked = true
+consume_key = false
 
 [node name="Sprite2D" parent="Door7" index="0"]
 texture = null
@@ -242,9 +244,11 @@ shape = SubResource("RectangleShape2D_d1bue")
 
 [node name="Door8" parent="." instance=ExtResource("3_1ps0b")]
 position = Vector2(90, 240)
+world_id = "key_room2"
 target_scene = "res://scenes/rooms/Room2.tscn"
 locked = true
-required_key = "key_Room2"
+required_key = "key_room2"
+consume_key = false
 
 [node name="Sprite2D" parent="Door8" index="0"]
 position = Vector2(-192, 51)
@@ -263,6 +267,7 @@ shape = SubResource("RectangleShape2D_ehqdh")
 position = Vector2(-116, 237)
 locked = true
 required_key = "key_Baño2"
+consume_key = false
 
 [node name="Sprite2D" parent="Door9" index="0"]
 position = Vector2(129, 54.000008)
@@ -277,8 +282,19 @@ position = Vector2(225, -69)
 position = Vector2(225, -50)
 shape = SubResource("RectangleShape2D_mfk48")
 
+[node name="Brother" parent="." instance=ExtResource("6_pilky")]
+position = Vector2(-260, 257)
+
 [node name="Player" parent="." instance=ExtResource("1_t0rdd")]
 position = Vector2(322, 289)
+
+[node name="DarkOverlay2" type="ColorRect" parent="."]
+offset_left = -1517.0
+offset_top = -376.0
+offset_right = 1328.0
+offset_bottom = 901.0
+color = Color(0, 0, 0, 0.7254902)
+script = ExtResource("5_2mgge")
 
 [connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
 

@@ -24,8 +24,8 @@ var shooting_timer := 0.0
 var has_weapon: bool = false
 
 func _ready() -> void:
-	# Si ya se tenía arma de antes (por guardar estado), activarlo
-	has_weapon = GameState.has_item("weapon_CountersRoom")
+	# Si ya se tenía arma de antes (por guardar estado), activarlo 
+	has_weapon = (GameState.has_item("weapon_CountersRoom") or GameState.has_item("un arma."))
 
 
 func _physics_process(delta):
@@ -57,7 +57,7 @@ func _physics_process(delta):
 	# --- ATAQUE / DISPARO ---
 	if Input.is_action_just_pressed("shoot"):
 		
-		if not has_weapon:
+		if not GameState.has_any_weapon():
 			var hud = get_tree().get_first_node_in_group("hud")
 			if hud:
 				hud.show_message("No tienes arma.")
@@ -160,7 +160,7 @@ func die() -> void:
 	var death_screen = preload("res://scenes/DeathScreen.tscn").instantiate()
 	get_tree().current_scene.add_child(death_screen)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_heal"):
 		var used : bool = GameState.use_heal()
 		if used:
@@ -174,13 +174,13 @@ func _unhandled_input(event: InputEvent) -> void:
 func unlock_weapon(weapon_id: String):
 	print("Arma obtenida:", weapon_id)
 	GameState.add_item(weapon_id)
-	has_weapon = true
+	has_weapon = GameState.has_any_weapon()
 	
 # ============================
 #   DISPARAR
 # ============================
 func shoot() -> void:
-	if not has_weapon:
+	if not GameState.has_any_weapon():
 		return
 	
 	var hud = get_tree().get_first_node_in_group("hud")

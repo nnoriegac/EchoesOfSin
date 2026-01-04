@@ -15,8 +15,13 @@ var heal_value: int = 10        # cuánto cura cada uso
 
 var inventory: Array[String] = []
 var keys: Array[String] = []
+var weapon_ids: Array[String] = ["weapon_CountersRoom", "un arma."]
 
 var power_on: bool = false
+
+var dead_enemies: Dictionary = {}
+var opened_doors: Dictionary = {}  
+var flags: Dictionary = {}  
 
 func _ready() -> void:
 	#  para comprobar que el autoload funciona.
@@ -26,6 +31,15 @@ func _ready() -> void:
 	emit_signal("hp_changed", player_hp, player_hp_max)
 	emit_signal("ammo_changed", ammo, ammo_max)
 	emit_signal("heals_changed", heals)
+
+# -----------------------
+# PUERTAS
+# -----------------------
+func set_door_opened(id: String) -> void:
+	opened_doors[id] = true
+
+func is_door_opened(id: String) -> bool:
+	return opened_doors.has(id)
 
 # -----------------------
 # VIDA
@@ -94,3 +108,55 @@ func spend_ammo(amount: int = 1) -> bool:
 		emit_signal("ammo_changed", ammo, ammo_max)
 		return true
 	return false
+
+func player_has_weapon() -> bool:
+	return has_item("weapon_CountersRoom") or has_item("un arma.")
+
+func has_any_weapon() -> bool:
+	for wid in weapon_ids:
+		if has_item(wid):
+			return true
+	return false
+# -----------------------
+# Guardar partida
+# -----------------------
+func save_game() -> void:
+	var data = {
+		"keys": keys,
+		"ammo": ammo,
+		"player_hp": player_hp,
+		"heals": heals,
+		"opened_doors": opened_doors,
+		"flags": flags,
+		"current_scene": get_tree().current_scene.scene_file_path
+	}
+
+	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify(data))
+	file.close()
+
+func load_game() -> void:
+	if not FileAccess.file_exists("user://savegame.json"):
+		return
+
+	var f = FileAccess.open("user://savegame.json", FileAccess.READ)
+	var data = JSON.parse_string(f.get_as_text())
+	f.close()
+
+	dead_enemies = data.get("dead_enemies", {})
+	opened_doors = data.get("opened_doors", {})
+	flags = data.get("flags", {})
+
+# -----------------------
+# EVENTOS
+# -----------------------
+func set_flag(id: String, value: bool = true) -> void:
+	flags[id] = value
+
+func has_flag(id: String) -> bool:
+	return flags.get(id, false)
+
+func mark_optional_violence(flag_id: String = "") -> void:
+	set_flag("optional_violence_used", true)
+	if flag_id != "":
+		set_flag(flag_id, true)

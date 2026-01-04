@@ -97,6 +97,21 @@ shape = SubResource("RectangleShape2D_ei6f7")
 position = Vector2(357, 262.75)
 shape = SubResource("RectangleShape2D_1ii54")
 
+[node name="Item3" parent="." instance=ExtResource("6_rmk3q")]
+position = Vector2(-36, -110)
+item_id = "la llave de la habitación pequeña."
+is_key = true
+sprite_anim = &"key_room1"
+
+[node name="CollisionShape2D" parent="Item3" index="0"]
+position = Vector2(251.99998, 491.00003)
+rotation = 1.0114807
+
+[node name="AnimatedSprite2D" parent="Item3" index="1"]
+position = Vector2(252, 490.00003)
+rotation = -0.5777252
+scale = Vector2(0.26562485, 0.29687494)
+
 [node name="Door" parent="." instance=ExtResource("2_qe7lq")]
 position = Vector2(535, 294)
 target_scene = "res://scenes/rooms/Hallway.tscn"
@@ -139,7 +154,6 @@ scale = Vector2(0.16406263, 0.15625045)
 [node name="Item2" parent="." instance=ExtResource("6_rmk3q")]
 item_id = "una cura."
 heal_amount = 1
-ammo_amount = 10
 sprite_anim = &"heal"
 
 [node name="CollisionShape2D" parent="Item2" index="0"]
@@ -181,6 +195,7 @@ script = ExtResource("8_kpngv")
 [connection signal="body_exited" from="Mirror" to="Mirror" method="_on_body_exited"]
 [connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
 
+[editable path="Item3"]
 [editable path="Door"]
 [editable path="Item"]
 [editable path="Item2"]

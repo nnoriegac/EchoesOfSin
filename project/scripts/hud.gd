@@ -11,6 +11,8 @@ extends CanvasLayer
 var dialog_lines: Array[String] = []
 var dialog_index: int = 0
 var dialog_active: bool = false
+signal dialog_started
+signal dialog_finished
 
 var choice_active: bool = false
 var choice_index: int = 0
@@ -65,6 +67,7 @@ func start_dialog(lines: Array[String]) -> void:
 	dialog_active = true
 
 	dialog_box.visible = true
+	emit_signal("dialog_started")
 	
 	var player = get_tree().get_first_node_in_group("player")
 	if player:
@@ -80,6 +83,7 @@ func _advance_dialog() -> void:
 	if dialog_index >= dialog_lines.size():
 		dialog_active = false
 		dialog_box.visible = false
+		emit_signal("dialog_finished")
 		
 		var player = get_tree().get_first_node_in_group("player")
 		if player:
