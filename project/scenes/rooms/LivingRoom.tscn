@@ -4,12 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://dflwdw51o15pm" path="res://sprites/LivingRoom/LivingRoom.png" id="1_scqvq"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_eafcu"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_m5uh3"]
-[ext_resource type="Script" uid="uid://0ac260u3urrt" path="res://scenes/rooms/table.gd" id="4_37d08"]
+[ext_resource type="Script" uid="uid://0ac260u3urrt" path="res://scripts/table.gd" id="4_37d08"]
 [ext_resource type="PackedScene" uid="uid://dmfago2ugl2un" path="res://scenes/characters/Enemy.tscn" id="4_rdbsd"]
 [ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="5_spoph"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_4tfso"]
-[ext_resource type="Script" uid="uid://d02w3laye7dq0" path="res://scenes/rooms/drawer_1.gd" id="9_yrgq3"]
-[ext_resource type="Script" uid="uid://bpc57hunotbi1" path="res://scenes/rooms/heal_drawer.gd" id="10_u0myy"]
+[ext_resource type="Script" uid="uid://d02w3laye7dq0" path="res://scripts/drawer_1.gd" id="9_yrgq3"]
+[ext_resource type="Script" uid="uid://bpc57hunotbi1" path="res://scripts/heal_drawer.gd" id="10_u0myy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eafcu"]
 size = Vector2(255.5, 68)

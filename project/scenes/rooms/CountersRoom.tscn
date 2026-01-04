@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_n2nsg"]
 [ext_resource type="PackedScene" uid="uid://cyorti3ykbo40" path="res://scenes/PuzzleCounter.tscn" id="5_4xkit"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_njp77"]
-[ext_resource type="Script" uid="uid://d3sh5lqedak7e" path="res://scenes/rooms/weaponCountersRoom.gd" id="7_a70lr"]
+[ext_resource type="Script" uid="uid://d3sh5lqedak7e" path="res://scripts/weaponCountersRoom.gd" id="7_a70lr"]
 [ext_resource type="PackedScene" uid="uid://bi71sojchqqjv" path="res://scenes/switch_puzzle.tscn" id="7_y5phe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a70lr"]

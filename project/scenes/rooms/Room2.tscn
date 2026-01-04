@@ -1,11 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://cncdmakk13seh"]
+[gd_scene load_steps=23 format=3 uid="uid://cncdmakk13seh"]
 
 [ext_resource type="Texture2D" uid="uid://cftba1ra3pajr" path="res://sprites/Room2/Room2.png" id="1_2q7b5"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_jwyym"]
 [ext_resource type="PackedScene" uid="uid://c8djwelmmgeps" path="res://scenes/characters/player.tscn" id="2_71j26"]
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="3_71j26"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="5_v52wf"]
-[ext_resource type="Script" uid="uid://dmeq3nycvx3vn" path="res://scenes/rooms/diary.gd" id="6_e0shg"]
+[ext_resource type="Script" uid="uid://dmeq3nycvx3vn" path="res://scripts/diary.gd" id="6_e0shg"]
+[ext_resource type="PackedScene" uid="uid://cx3l3nvqed5bk" path="res://scenes/characters/Woman.tscn" id="7_50jb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(250, 64.5)
@@ -68,8 +69,11 @@ script = ExtResource("5_v52wf")
 position = Vector2(290.00003, 324.87497)
 texture = ExtResource("1_2q7b5")
 
+[node name="Woman" parent="." instance=ExtResource("7_50jb0")]
+position = Vector2(405, 261)
+
 [node name="Player" parent="." instance=ExtResource("2_71j26")]
-position = Vector2(275, 353)
+position = Vector2(354, 408)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

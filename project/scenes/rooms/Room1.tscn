@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b7olysdmkn5v2" path="res://scenes/Door.tscn" id="2_j0bqs"]
 [ext_resource type="PackedScene" uid="uid://dkawvfbcyd8p" path="res://scenes/characters/LittleGirl.tscn" id="5_wd6xt"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_nf2ix"]
-[ext_resource type="Script" uid="uid://0no4l4bcmutm" path="res://scenes/rooms/drawing.gd" id="7_gd78x"]
+[ext_resource type="Script" uid="uid://0no4l4bcmutm" path="res://scripts/drawing.gd" id="7_gd78x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yj8na"]
 size = Vector2(4, 20)

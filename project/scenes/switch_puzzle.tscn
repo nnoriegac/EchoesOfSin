@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bi71sojchqqjv"]
 
 [ext_resource type="Texture2D" uid="uid://dsavm08cprfgc" path="res://sprites/CountersRoom/CountersRoomPuzzle.png" id="1_71q8f"]
-[ext_resource type="Script" uid="uid://dub8r40g72lvc" path="res://scenes/switch_puzzle.gd" id="1_tsy07"]
+[ext_resource type="Script" uid="uid://dub8r40g72lvc" path="res://scripts/switch_puzzle.gd" id="1_tsy07"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tsy07"]
 atlas = ExtResource("1_71q8f")
