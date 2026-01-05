@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bjygcvqjtyn33"]
+[gd_scene load_steps=25 format=3 uid="uid://bjygcvqjtyn33"]
 
 [ext_resource type="Texture2D" uid="uid://cjo7vkoiie201" path="res://sprites/SafeRoom1/SafeRoom1.png" id="1_4xo85"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_qu2cq"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="6_rmk3q"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="8_kpngv"]
 [ext_resource type="Script" uid="uid://c7vqjhj8fq2dt" path="res://scripts/mirror.gd" id="10_f1vfo"]
+[ext_resource type="Script" uid="uid://dyf3qj0easskf" path="res://scenes/rooms/area_2d.gd" id="11_ei6f7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xo85"]
 size = Vector2(621, 68.5)
@@ -46,6 +47,9 @@ size = Vector2(8, 9.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q8mgn"]
 size = Vector2(18, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l1xt"]
+size = Vector2(17.5, 20)
 
 [node name="SafeRoom" type="Node2D"]
 
@@ -130,7 +134,7 @@ position = Vector2(-101, 39)
 shape = SubResource("RectangleShape2D_rmk3q")
 
 [node name="Player" parent="." instance=ExtResource("2_k1iyv")]
-position = Vector2(320, 287)
+position = Vector2(410, 336)
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(290, 325)
@@ -179,11 +183,18 @@ script = ExtResource("10_f1vfo")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_q8mgn")
 
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("11_ei6f7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(411, 341)
+shape = SubResource("RectangleShape2D_5l1xt")
+
 [node name="DarkOverlay2" type="ColorRect" parent="."]
-offset_left = -36.0
-offset_top = -110.0
-offset_right = 769.0
-offset_bottom = 750.0
+offset_left = -23.0
+offset_top = -64.0
+offset_right = 782.0
+offset_bottom = 796.0
 color = Color(0, 0, 0, 0.7254902)
 script = ExtResource("8_kpngv")
 
@@ -193,6 +204,7 @@ script = ExtResource("8_kpngv")
 [connection signal="body_exited" from="Drawer" to="Drawer" method="_on_body_exited"]
 [connection signal="body_entered" from="Mirror" to="Mirror" method="_on_body_entered"]
 [connection signal="body_exited" from="Mirror" to="Mirror" method="_on_body_exited"]
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="ready" from="DarkOverlay2" to="DarkOverlay2" method="_on_ready"]
 
 [editable path="Item3"]

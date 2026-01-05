@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://d0m1wq7he4han"]
+[gd_scene load_steps=28 format=3 uid="uid://d0m1wq7he4han"]
 
 [ext_resource type="Texture2D" uid="uid://bl5jk4s2bblkl" path="res://sprites/Lab/Lab.png" id="1_iqbik"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_ph6n0"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bcilg02sud0kf" path="res://scenes/characters/Brother.tscn" id="6_flw2a"]
 [ext_resource type="Script" uid="uid://brkxmu8rggdl" path="res://scripts/brother_final.gd" id="7_0vbol"]
 [ext_resource type="Script" uid="uid://b7khjmlg81hd5" path="res://scripts/final_lab_controller.gd" id="7_gk6yu"]
+[ext_resource type="PackedScene" uid="uid://coo6sphew8bwd" path="res://scenes/EndScreen.tscn" id="11_0vbol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqbik"]
 size = Vector2(32, 27)
@@ -229,6 +230,7 @@ boss_path = NodePath("../EnemyFinalBoss")
 brother_path = NodePath("../Brother")
 brother_spawn_marker_path = NodePath("../BroderSpawn")
 good_trigger_path = NodePath("../GoodEndingTrigger")
+end_scene_good = ExtResource("11_0vbol")
 
 [node name="BroderSpawn" type="Marker2D" parent="."]
 position = Vector2(834, 577)

@@ -21,6 +21,7 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 10551.0
 offset_bottom = 9827.0
+mouse_filter = 2
 color = Color(0.5019608, 0, 0.09411765, 1)
 
 [node name="Label" type="Label" parent="Root"]
@@ -34,15 +35,6 @@ text = "FIN DE LA PARTIDA
 "
 label_settings = SubResource("LabelSettings_q8x7y")
 
-[node name="Button" type="Button" parent="Root"]
-y_sort_enabled = true
-layout_mode = 0
-offset_left = 364.0
-offset_top = 251.0
-offset_right = 504.0
-offset_bottom = 298.0
-text = "REINTENTAR"
-
 [node name="Label2" type="Label" parent="Root"]
 y_sort_enabled = true
 layout_mode = 0
@@ -52,3 +44,12 @@ offset_right = 483.0
 offset_bottom = 229.0
 text = "Has muerto"
 label_settings = SubResource("LabelSettings_biyii")
+
+[node name="Button" type="Button" parent="Root"]
+y_sort_enabled = true
+layout_mode = 0
+offset_left = 364.0
+offset_top = 251.0
+offset_right = 504.0
+offset_bottom = 298.0
+text = "REINTENTAR"

@@ -86,10 +86,12 @@ func _advance_dialog() -> void:
 		dialog_box.visible = false
 		emit_signal("dialog_finished")
 		
-		var player = get_tree().get_first_node_in_group("player")
-		if player:
-			player.can_move = true
-		
+		var tree := get_tree()
+		if tree:
+			var player = tree.get_first_node_in_group("player")
+			if player and "can_move" in player:
+				player.can_move = true
+	
 	else:
 		_show_current_line()
 
@@ -187,3 +189,7 @@ func flash(duration: float = 0.12, times: int = 2) -> void:
 		await t2.finished
 
 	flash_rect.visible = false
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	pass # Replace with function body.

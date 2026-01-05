@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://coo6sphew8bwd"]
+
+[ext_resource type="Script" uid="uid://c7bpkge0icidm" path="res://scripts/end_screen.gd" id="1_t6hh0"]
+
+[node name="EndScreen" type="CanvasLayer"]
+script = ExtResource("1_t6hh0")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Fade" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3019608, 0, 0.09411765, 1)
+
+[node name="Title" type="Label" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FIN DE LA PARTIDA"
+horizontal_alignment = 1
+vertical_alignment = 1

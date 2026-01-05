@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://dccv3qjhw0il4"]
+[gd_scene load_steps=16 format=3 uid="uid://dccv3qjhw0il4"]
 
+[ext_resource type="Script" uid="uid://c2btp1uilplj3" path="res://scripts/start_area_garden.gd" id="1_1b2c0"]
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_alpvj"]
 [ext_resource type="Texture2D" uid="uid://cwh7lbu18n4a0" path="res://sprites/Garden/Garden.png" id="2_6f8no"]
 [ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="6_1b2c0"]
@@ -34,6 +35,7 @@ size = Vector2(9, 44)
 
 [node name="StartAreaGarden" type="Node2D"]
 position = Vector2(0, 367)
+script = ExtResource("1_1b2c0")
 
 [node name="HUD" parent="." instance=ExtResource("1_alpvj")]
 
