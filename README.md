@@ -1,5 +1,21 @@
-# EchoesOfSin
-Prototipo 2D de terror psicológico en Godot para el TFG “Echoes of Sin”.
+
+# Echoes of Sin – TFG Videojuego 2D
+
+**Autor:** Natalia Noriega  
+**Grado:** Ingeniería Informática – UOC  
+**Curso:** Trabajo de Fin de Grado  
+**Género:** Terror psicológico 2D (pixel art)
+
+## Descripción del proyecto
+
+Echoes of Sin es un prototipo jugable (MVP) de un videojuego 2D de terror psicológico desarrollado como Trabajo de Fin de Grado.  
+El juego combina exploración, gestión limitada de recursos y decisiones narrativas que afectan al desarrollo de la historia y a su desenlace final.
+
+El jugador despierta sin recuerdos en el jardín de una mansión siniestra y, a medida que avanza, descubre su pasado y debe enfrentarse a las consecuencias de sus decisiones.
+
+## Estado del proyecto
+
+Este repositorio contiene la **versión Gold Master (final)** correspondiente a la **PEC4**, junto con el código fuente completo y la documentación del proyecto.
 
 ## Tecnologías principales
 
@@ -18,6 +34,10 @@ Prototipo 2D de terror psicológico en Godot para el TFG “Echoes of Sin”.
 
 - `/docs/` – Documentación del TFG (GDD, diagramas, capturas)  
 - `/export/` – Builds jugables por PEC (no se versionan los ejecutables)
+    /PEC2
+    /PEC3
+    /PEC4
+        EchoesOfSin_PEC4.zip   <-- ejecutable final
 
 ## Cómo abrir el proyecto
 
@@ -26,11 +46,11 @@ Prototipo 2D de terror psicológico en Godot para el TFG “Echoes of Sin”.
    ```bash
    git clone https://github.com/nnoriegac/EchoesOfSin.git
 
-2. Ir a la carpeta de export de la PEC2:
+2. Ir a la carpeta de export de la PEC4:
 EchoesOfSin/export/PEC2/
 
 3. Ejecutar:
-EchoesOfSin_PEC2.exe
+EchoesOfSin_PEC4.exe
 
 (probado en Windows 10/11).
 No es necesario tener Godot instalado para jugar la build exportada.
@@ -39,50 +59,10 @@ No es necesario tener Godot instalado para jugar la build exportada.
 
 Movimiento: WASD o flechas
 
-Recoger armas y llaves: acercarse al objeto (arma o llave); la recogida se realiza automáticamente al entrar en el área.
-
-Interactuar: Se mostrará un mensaje cuando puedas interactuar con un personaje u objeto, puslando la tecla E se realiza la interacción.
+Recoger armas, llaves, interactuar: Se mostrará un mensaje cuando puedas interactuar con un personaje u objeto, puslando la tecla E se realiza la interacción.
 
 Disparar: Clic izquierdo del ratón.
 
+Curarse: Clic derecgo del ratón.
+
 Correr: Tecla Shift.
-
-## Contenido del prototipo (PEC3)
-
-En esta versión se ha implementado:
-
-- Escena inicial: jardín invernal abandonado, construido con un TileMap y tiles 32×32
-que simulan barro, piedras y charcos.
-
-- Passillo que conecta varias salas.
-
-- SafeRoom simple sin interacción de guardado.
-
-- Habitación con inteacción clave con NPC de niña.
-
-- Sala de contadores con interracción para encender la luz.
-
-- Salón con enemigo básico.
-  
-- Laboratorio sin interacciones.
-
-- Personaje jugable:
-  - Movimiento en 2D con CharacterBody2D.
-  - Colisiones básicas contra los límites de la zona.
-  - Cámara que sigue al jugador mediante Camera2D.
-  - Lógica de vida
-  - Lógica de ataque
-
-- HUD simple:
-  - Para mostar cuadros de dialogo
-  - Mostrar mensajes que se ocultan automáticamente tras unos segundos.
-  - Bara de vida y de munición
-
-## Errores conocidos
-
-Durante la ejecución en el editor de Godot pueden aparecer avisos en la consola tipo:
-- The TileSetAtlasSource atlas has no tile at (x, y)
-- Cannot create tile. The tile is outside the texture or tiles are already present in the space the tile would cover
-
-Estos mensajes están relacionados con la edición del TileSet y el TileMap (celdas que en algún momento apuntaban a tiles que ya no existen en el atlas), pero no afectan a la jugabilidad ni impiden la ejecución de la build exportada.
-Se consideran una mejora técnica pendiente para iteraciones futuras.
