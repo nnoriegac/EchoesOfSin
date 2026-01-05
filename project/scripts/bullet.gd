@@ -19,8 +19,15 @@ func _on_body_entered(body: Node) -> void:
 		return  # ignorar colisión con el jugador
 
 	if body.is_in_group("enemy"):
+		print("BALA chocó con: ", body.name, " tipo: ", body.get_class())
 		if body.has_method("take_damage"):
 			body.take_damage(damage)
 	
 	# Tanto si ha dado a un enemigo como si no, la bala desaparece al primer impacto
+	queue_free()
+
+func _on_area_entered(area: Area2D) -> void:
+	var parent := area.get_parent()
+	if parent and parent.has_method("take_damage"):
+		parent.take_damage(damage)
 	queue_free()

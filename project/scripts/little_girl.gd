@@ -6,7 +6,7 @@ extends Area2D
 	"Elena: ...",
 	"Elena: No deberías estar aquí.",
 	"Elena: Toma esta llave para bajar al salón... pero no hagas ruido, es peligroso.",
-	"Elena: No suele ser agresivo, pero desde que escapó el otro, está más inquieto."
+	"Elena: No suele ser agresivo, pero desde que escapó el otro, está más inquieto. Intenta no herirlo."
 ]
 
 @onready var anim := $AnimatedSprite2D

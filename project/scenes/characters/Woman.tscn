@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cx3l3nvqed5bk"]
+[gd_scene load_steps=53 format=3 uid="uid://cx3l3nvqed5bk"]
 
 [ext_resource type="Texture2D" uid="uid://bue08a1s28evk" path="res://sprites/characters/sad_woman.png" id="1_bduvy"]
 [ext_resource type="Script" uid="uid://dh6w60fdw8lt5" path="res://scripts/woman.gd" id="1_whjwk"]
@@ -345,19 +345,27 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqla4"]
-size = Vector2(20, 34)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whjwk"]
+size = Vector2(20, 33)
 
-[node name="Woman" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqla4"]
+size = Vector2(21, 13)
+
+[node name="Woman" type="CharacterBody2D"]
 script = ExtResource("1_whjwk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_jytnt")
 animation = &"healed"
-frame_progress = 0.75034046
+frame_progress = 0.80011237
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_whjwk")
 
 [node name="InteractArea" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
-position = Vector2(0, 1)
+position = Vector2(2, 23)
 shape = SubResource("RectangleShape2D_aqla4")

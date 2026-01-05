@@ -1,4 +1,4 @@
-extends Node2D
+extends CharacterBody2D
 
 enum WomanState { HURTED, HEALED, DEAD }
 
@@ -48,7 +48,11 @@ func _interact() -> void:
 		# Si ya decidió NO antes, no volvemos a preguntar. Solo recordatorio.
 		if GameState.has_flag(not_helped_flag_id):
 			if hud:
-				hud.start_dialog(["Sigue llorando… No parece confiar en ti."])
+				if hud:
+					var lines: Array[String] = [
+						"Sigue llorando… No parece confiar en ti."
+							]
+					hud.start_dialog(lines)
 			return
 
 		if hud:
@@ -63,10 +67,12 @@ func _interact() -> void:
 		# Da la llave una vez (si ya la tiene por "no" o por muerte, no repite)
 		if not GameState.has_key(key_id):
 			if hud:
-				hud.start_dialog([
+				var lines: Array[String] = [
 					"Me herí en el laboratorio intentando cerrarlo con llave para que no escapara…",
 					"Toma. Esta es la llave del laboratorio."
-				])
+					]
+				hud.start_dialog(lines)
+			
 			GameState.add_key(key_id)
 			GameState.set_flag("got_lab_key", true)
 		else:
@@ -80,7 +86,7 @@ func _on_heal_choice(selected_index: int, selected_text: String) -> void:
 	# selected_index: 0 = Sí, 1 = No
 	if selected_index == 0:
 		# ---- INTENTAR CURAR ----
-		if not GameState.can_use_heal():
+		if GameState.heals <= 0:
 			if hud:
 				var lines: Array[String] = [
 					"Buscas algo para ayudarla…",
@@ -90,7 +96,7 @@ func _on_heal_choice(selected_index: int, selected_text: String) -> void:
 			return
 
 		# consumir cura del jugador
-		GameState.use_heal()
+		GameState.add_heals(-1)
 
 		# curar a la mujer
 		state = WomanState.HEALED
@@ -98,7 +104,10 @@ func _on_heal_choice(selected_index: int, selected_text: String) -> void:
 		GameState.set_flag(helped_flag_id, true)
 
 		if hud:
-			hud.start_dialog(["Gracias… no sabes lo que significa para mí."])
+			var lines: Array[String] = [
+				"Gracias… no sabes lo que significa para mí."
+			]
+			hud.start_dialog(lines)
 
 	else:
 		# ---- NO AYUDAR ----
@@ -138,7 +147,10 @@ func _die() -> void:
 
 	var hud = get_tree().get_first_node_in_group("hud")
 	if hud:
-		hud.show_message("La has matado. Encuentras una llave en el suelo.")
+		var lines: Array[String] = [
+			"La has matado. Encuentras una llave en el suelo."
+			]
+		hud.show_message(lines)
 
 	queue_free()
 
