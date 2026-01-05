@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cknebl7od4tvt"]
+
+[ext_resource type="Texture2D" uid="uid://ccd021qom2g3d" path="res://sprites/Lab/LabPuzzle.png" id="1_61w64"]
+[ext_resource type="Script" uid="uid://x4l1fepa7vie" path="res://scenes/puzzle_pin.gd" id="1_yku5b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yku5b"]
+font_size = 9
+
+[sub_resource type="LabelSettings" id="LabelSettings_klbiw"]
+font_size = 9
+
+[node name="PuzzlePin" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_yku5b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 72.0
+offset_right = 882.0
+offset_bottom = 432.0
+texture = ExtResource("1_61w64")
+
+[node name="HintLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 145.0
+offset_right = 609.0
+offset_bottom = 168.0
+text = "nnnnnnnnnn"
+label_settings = SubResource("LabelSettings_yku5b")
+
+[node name="CodeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 190.0
+offset_right = 617.0
+offset_bottom = 213.0
+text = "**************"
+label_settings = SubResource("LabelSettings_klbiw")

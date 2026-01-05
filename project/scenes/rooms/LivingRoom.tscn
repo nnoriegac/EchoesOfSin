@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dle86qytbnnks"]
+[gd_scene load_steps=33 format=3 uid="uid://dle86qytbnnks"]
 
 [ext_resource type="PackedScene" uid="uid://ceppm3w5sfetp" path="res://scenes/HUD.tscn" id="1_eafcu"]
 [ext_resource type="Texture2D" uid="uid://dflwdw51o15pm" path="res://sprites/LivingRoom/LivingRoom.png" id="1_scqvq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmfago2ugl2un" path="res://scenes/characters/Enemy.tscn" id="4_rdbsd"]
 [ext_resource type="PackedScene" uid="uid://ckrfg3gxvpwdm" path="res://scenes/Item.tscn" id="5_spoph"]
 [ext_resource type="Script" uid="uid://d31dh70126k0c" path="res://scripts/dark_overlay.gd" id="6_4tfso"]
+[ext_resource type="PackedScene" uid="uid://cknebl7od4tvt" path="res://scenes/puzzle_pin.tscn" id="6_nsfut"]
 [ext_resource type="Script" uid="uid://d02w3laye7dq0" path="res://scripts/drawer_1.gd" id="9_yrgq3"]
 [ext_resource type="Script" uid="uid://bpc57hunotbi1" path="res://scripts/heal_drawer.gd" id="10_u0myy"]
 
@@ -253,6 +254,9 @@ target_scene = "res://scenes/rooms/Lab.tscn"
 locked = true
 required_key = "key_lab"
 consume_key = false
+requires_pin = true
+pin_flag_id = "lab_pin_unlocked"
+pin_puzzle_scene = ExtResource("6_nsfut")
 
 [node name="Sprite2D" parent="Door3" index="0"]
 position = Vector2(423, 414)
