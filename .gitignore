@@ -35,6 +35,11 @@ export/*
 !export/PEC3/*.exe
 !export/PEC3/*.pck
 
+export/*
+!export/PEC4/
+!export/PEC4/*.zip
+
+
 # Archivos temporales del sistema
 .DS_Store
 Thumbs.db
