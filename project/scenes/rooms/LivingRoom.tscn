@@ -295,6 +295,7 @@ speed = 100.0
 detection_radius = 110.0
 attack_radius = 30.0
 attack_cooldown = 3.0
+max_hp = 60
 patrol_distance = 150.0
 
 [node name="CollisionShape2D" parent="Enemy" index="0"]

@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var heals_label = $HealsLabel
 @onready var dialog_box = $DialogBox
 @onready var dialog_text = $DialogBox/DialogText
+@onready var flash_rect: ColorRect = $FlashRect
 
 var dialog_lines: Array[String] = []
 var dialog_index: int = 0
@@ -170,3 +171,19 @@ func _process(delta: float) -> void:
 	# diálogo normal
 	if dialog_active and Input.is_action_just_pressed("ui_accept"):
 		_advance_dialog()
+
+func flash(duration: float = 0.12, times: int = 2) -> void:
+	flash_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	flash_rect.visible = true
+	flash_rect.modulate.a = 0.0
+
+	for i in range(times):
+		var t1 := create_tween()
+		t1.tween_property(flash_rect, "modulate:a", 1.0, duration)
+		await t1.finished
+
+		var t2 := create_tween()
+		t2.tween_property(flash_rect, "modulate:a", 0.0, duration)
+		await t2.finished
+
+	flash_rect.visible = false

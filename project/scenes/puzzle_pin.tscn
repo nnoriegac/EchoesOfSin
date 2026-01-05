@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cknebl7od4tvt"]
 
 [ext_resource type="Texture2D" uid="uid://ccd021qom2g3d" path="res://sprites/Lab/LabPuzzle.png" id="1_61w64"]
-[ext_resource type="Script" uid="uid://x4l1fepa7vie" path="res://scenes/puzzle_pin.gd" id="1_yku5b"]
+[ext_resource type="Script" uid="uid://x4l1fepa7vie" path="res://scripts/puzzle_pin.gd" id="1_yku5b"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yku5b"]
 font_size = 9

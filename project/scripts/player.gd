@@ -158,7 +158,7 @@ func die() -> void:
 	
 	# instanciar pantalla de muerte
 	var death_screen = preload("res://scenes/DeathScreen.tscn").instantiate()
-	get_tree().current_scene.add_child(death_screen)
+	get_tree().root.add_child(death_screen)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_heal"):
